@@ -1,0 +1,9 @@
+<% headers = ['First Name','Last Name', 'Svc address 1', 'Svc address 2', 'Current provider', 'Kwh usage', 'Energy charge',  
+			'Usage charge', 'Esi', 'Meter number', 'Account number', 'Plan End Date', 'Last Bill Amount'] %>
+<%= CSV.generate_line headers %>
+<% @bills.each do |bill| %>
+  <%= CSV.generate_line([bill.user.first_name, bill.user.last_name, bill.svc_address_1, bill.svc_address_2, bill.current_provider, bill.kwh_usage,  
+  		bill.energy_charge, bill.usage_charge, bill.esi_id, bill.meter_number, bill.account_number, 
+  		bill.plan_end_date, bill.last_bill_amount],
+  				 	   :row_sep => '') %>
+<% end %>

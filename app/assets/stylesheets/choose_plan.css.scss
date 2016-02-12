@@ -1,0 +1,305 @@
+.plan-choice{
+  margin: 12px 0 12px 13.6%;
+  @media screen and (min-width:992px) and (max-width:1075px) {
+    margin: 12px 45px 12px 10.6%;
+    // These Will Collapse here and be mis-aligned without this rule
+  }
+}
+
+#basic-plan-div{
+  background: image-url('PlanBox_Basic.png');
+  background-repeat: no-repeat;
+  background-size: 75% auto;
+  background-position: left top;
+  background-attachment:local;
+}
+
+#gold-plan-div{
+  background: image-url('PlanBox_Gold.png');
+  background-repeat: no-repeat;
+  background-size: 75% auto;
+  background-position: left top;
+  background-attachment:local;
+}
+
+.plan-div{
+  width: 500px;
+  height: 325px;
+  padding: 0 0 0 170px;
+  color:white;
+
+  @media screen and (min-width:401px) and (max-width:992px) {
+    float: none;
+    margin:0px auto;
+    background-position:center top;
+    padding: 0px 65px 0px 99px;
+/*    margin-left: 150px;
+    margin-top: -50px;*/
+  }
+  /*@media screen and (max-width:768px) {
+    margin-left: 50px;
+  }
+  @media screen and (max-width:600px) {
+    margin-left: 0px;
+  }*/
+  @media screen and (max-width:400px) {
+    float: none;
+    margin-left: -100px;
+    background-position:center top;
+    padding: 0px 65px 0px 99px;
+  }
+}
+
+// Opera Rule
+noindex:-o-prefocus, #plan-div {
+  @media screen and (min-width:401px) and (max-width:992px) {
+    margin:0 auto;
+  }
+}
+
+.plan-header{
+  width: 278px;
+  margin: 25px 30px 0px -130px;
+  @media screen and (max-width:992px) {
+    margin-left: -58px;
+  }
+}
+
+.plan-price-wrap{
+  width: 320px;
+  padding-top:23px;
+}
+
+#plan-price-wrap{
+  margin-right: -10px;
+}
+
+.plan-title{
+  font-weight:bold;
+  font-size: 18px;
+}
+
+.plan-cost-basic{
+  color:#9BC0E7;
+  line-height: 2.2em;
+}
+
+.plan-cost-gold{
+  line-height: 2.2em;
+}
+
+.plan-trial{
+  font-weight: bold;
+  line-height: 1.8em;
+}
+
+.plan-trial-free-basic{
+  font-weight: bold;
+  color:#9BC0E7;
+}
+
+.plan-trial-free-gold{
+  font-weight: bold;
+  color:#B88E00;
+}
+
+.plan-body{
+  margin: 22px 0 0 -130px;
+  @media screen and (max-width:992px) {
+    margin-left: -60px;
+  }
+}
+
+.plan-detail{
+  margin: 0px 20px 0 0;
+  padding:0 0 20px 0;
+  list-style-type: none;
+  font-family:'Helvetica';
+  font-size: 11px;
+  line-height: 1.3em;
+  max-width: 295px;
+  // @media screen and (max-width:992px) {
+  //   padding-top:90px;
+  // }
+  // > li {
+  //   padding-bottom: 2px;
+  // }
+}
+
+
+.plan-basic-detail-heading{
+  color:#9BC0E7;
+  font-weight:bold;
+  font-size:13px;
+  line-height: 2em;
+}
+
+.plan-gold-detail-heading{
+  color:#F7D65E;
+  font-weight:bold;
+  font-size:13px;
+  line-height: 2em;
+}
+
+#choose_plan_form{
+  margin-top: -17px;
+}
+
+form#choose_plan_form > input.plan-submit{
+  font-size:12px;
+  font-weight:bold;
+  border: 0 none;
+  border-radius: 14px;
+  -webkit-border-radius:14px;
+  -moz-border-radius:14px;
+  -o-border-radius:14px;
+  -ms-border-radius:14px;
+  -khtml-border-radius:14px;
+  cursor: pointer;
+  height: 25px;
+  padding: 0 25px;
+  margin-top: 0;
+}
+
+#basic-plan-submit{
+  text-align: center;
+  margin-left: -40px;
+  margin-top: 24px;
+  > form#choose_plan_form > input.plan-submit{
+    font-size:12px;
+    font-weight:bold;
+    background-color:#7EB0E3;
+    border: 0 none;
+    border-radius: 13px;
+    -webkit-border-radius:13px;
+    -o-border-radius:13px;
+    -moz-border-radius:13px;
+    -ms-border-radius:13px;
+    -khtml-border-radius:13px;
+    cursor: pointer;
+    height: 25px;
+    padding: 0 25px;
+    margin-top: -5px;
+  }
+}
+
+#gold-plan-submit{
+  text-align: center;
+  margin-left: -18px;
+  margin-top: 13px;
+  > form#choose_plan_form > input.plan-submit{
+    font-size:12px;
+    font-weight:bold;
+    color:#9C7204;
+    background-color:#FEDA50;
+    border: 0 none;
+    border-radius: 13px;
+    -webkit-border-radius:13px;
+    -o-border-radius:13px;
+    -moz-border-radius:13px;
+    -ms-border-radius:13px;
+    -khtml-border-radius:13px;
+    cursor: pointer;
+    height: 25px;
+    padding: 0 25px;
+    margin-top: 9px;
+  }
+}
+
+.plan-tag{
+  color: #617C99;
+  margin-top: 30px;
+ }
+
+#basic-tag{
+  color: #617C99;
+  padding: 0 0 0 170px;
+  width: 508px;
+  margin-left: -20px;
+  font-size: 18px;
+  font-weight: bold;
+  @media screen and (min-width:992px) and (max-width:1075px) {
+    margin-left: -100px;
+    // These Will Collapse here and be mis-aligned without this rule
+  }
+  @media screen and (min-width:401px) and (max-width:992px) {
+    float: none;
+    margin: -50px auto;
+    padding: 71px 0px -0px 106px;
+  }
+  @media screen and (max-width:400px) {
+    float: none;
+    margin-left: -100px;
+    background-position:center top;
+    padding: 65px 65px 0px 99px;
+  }
+}
+
+.gold-small{
+  color: transparent;
+  height: 0px;
+  @media screen and (min-width:992px) and (max-width:1075px){
+    color: transparent;
+  height: 0px;
+      // These Will Collapse here and be mis-aligned without this rule
+  }
+  @media screen and (min-width:401px) and (max-width:992px) {
+    font-size: 18px;
+    font-weight: bold;
+    color: #617C99;
+    float: none;
+    text-align: center;
+    width: 100%;
+    margin: 0px 0px 0px -31px;
+    /* margin: 0px 0px 0px 300px; */
+    height: 0px;
+  }
+  @media screen and (max-width:401px){
+      font-size: 18px;
+    font-weight: bold;
+    color: #617C99;
+    float: none;
+    text-align: center;
+    width: 100%;
+    margin: 0px 0px 0px -10px;
+    /* margin: 0px 0px 0px 300px; */
+    height: 0px;
+  }
+}
+
+#gold-tag{
+  color: #617C99;
+  padding: 0 140px 0 30px;
+  width: 500px;
+  font-size: 18px;
+  font-weight: bold;
+  @media screen and (min-width:992px) and (max-width:1075px) {
+    width: 450px;
+    // These Will Collapse here and be mis-aligned without this rule
+  }
+  @media screen and (max-width:992px) {
+    float: none;
+    color: transparent;
+  }
+}
+
+.switch-plan-link{
+  margin-left:115px;
+  @media screen and (max-width:992px) {
+    margin-left:-110px;
+    text-align:center;
+  }
+}
+
+.plan-sub-header{
+  font-size: 19px;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #617C99;
+  margin-bottom: -14px;
+  @media screen and (max-width:992px) {
+    margin-left: -110px;
+    margin-top: 25px;
+    text-align: center;
+  }
+}

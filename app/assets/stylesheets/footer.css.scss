@@ -1,0 +1,122 @@
+
+// BEGIN FOOTER 
+
+div#home-wrap-around-footer{ //no overlap of footer content
+  position: relative;
+  margin:0;
+  padding:0;
+}
+
+.footer-column{
+  padding: 0px 30px 0px 0px;
+  width: auto;
+  min-width: 140px;
+}
+
+.footer-column-left{
+  padding: 0px 15px 0px 0px;
+  width:auto;
+  min-width: 140px;
+}
+
+.copyright-div{
+    background-color:#22303D;
+    > .copyright-text{
+      color:#4B5E76;
+      margin-left:15px;
+      font-size: 10px;
+    }
+  }
+                        
+.footer-links-div{
+  background-color: #2D3E50;
+  padding: 25px 140px 25px 16%;
+  font-family: "Helvetica";
+  @media screen and (max-width: 991px) {
+    padding: 25px 15px 25px 66px;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 25px 60px 25px 45px;
+  }
+  @media screen and (max-width:400px) {
+    > div.pull-right {
+      float:none;
+      margin-left: -20px;
+    }
+  }
+}
+
+.footer-title{
+  text-align:left;
+  color:#FFF;
+  font-size: 13px;
+  font-weight:bold;
+  line-height: 1.5em;
+}
+
+.home-footer-links{ 
+  > a{
+  color: #fff;
+  display: inline-block;
+  padding-top: 5px;
+  font-size: 12px;
+  text-decoration:none;
+  font-weight: normal;
+  }
+  > a:hover{
+    text-decoration:underline;
+  }
+}
+
+.social_links_div {
+  background-color:#617C99;
+  border-radius:25px;
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+  -o-border-radius:25px;
+  -ms-border-radius:25px;
+  -khtml-border-radius:25px;
+  display: inline-block;
+  margin-left:5px;
+  margin-top: 15px;
+  
+  @media screen and (max-width:400px) {
+    margin-left:2px;
+  }
+
+  > a.social-links > img {
+    padding:0; 
+  }
+  > a.social-links > img:hover {
+    background-color:#FDCD01;
+    border-radius:25px;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+    -o-border-radius:25px;
+    -ms-border-radius:25px;
+    -khtml-border-radius:25px;
+  }
+}
+
+.terms-policy {
+  margin: 17px 0 0 23px;
+}
+
+.terms_of_use a{
+  font-size: 12px;
+  color: #fff;
+  &:visited {
+    color: #fff;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+#privacy-policy{
+  margin-left: -29px;
+  vertical-align: -7px;
+}
+
+// END FOOTER 

@@ -1,0 +1,56 @@
+<h3>Your Area Has Consumer Choice, but is not yet served by EnergySimp.ly. <br><br>
+Please provide your info, and we will let you know when we expand to your area. </h3><br>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <div class="form-group">
+
+      <%= f.label :plan_type, "Plan Preference" %><br>
+      <%= f.radio_button :plan_type, :value=> "Cheapest Power" %> <span class="glyphicon glyphicon-usd"></span> Lowest price from any energy resources	<br>
+      <%= f.radio_button :plan_type, :value=> "Most Affordable 100% Renewable" %> <span class="glyphicon glyphicon-leaf"></span> Lowest price that is 100% from renewable energy resources<br /><br />
+
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: "form-control" %><br />
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: "form-control" %><br />
+
+      <% if @email.blank? %>
+        <span class="sign-up-label hidden-xs">Email</span><br>
+        <%= f.email_field :email,
+          placeholder: "Email",
+          class: "form-control sign-up-input" %><br />
+      <% else %>
+        <%= f.hidden_field :email, :value => @email %>
+      <% end %>
+
+      <% if @cached_visitor.zip_id.blank? %>
+        <span class="sign-up-label hidden-xs">Zip Code</span><br>
+        <%= text_field_tag :zip, (params[:zip]),
+          placeholder: "Zip Code",
+          class: "form-control  sign-up-input sign-up-zip-field" %>
+        <br><br>
+      <% else %>
+        <span class="sign-up-label hidden-xs">Zip Code</span><br>
+        <%= text_field_tag :zip, @cached_visitor.zip.zip, readonly: true,
+          class: "form-control  sign-up-input sign-up-zip-field" %>
+        <br><br>
+      <% end %>
+
+      <!-- Tell Create What Subform Was Used  -->
+        <%= hidden_field_tag :form_type, "not_served_choice" %>
+
+
+      <!-- Pass Referral Info To Controller -->
+      <%= hidden_field_tag :referral_key, (params[:referral_key]) %>
+
+      <!-- These are only passed in case of a form-submission error, to repopulate it -->
+      <%= hidden_field_tag :elec_choice_value, (params[:elec_choice_value]) %>
+
+  </div>
+
+  <div class="form-group">
+  	<%= f.submit "Sign Up", class: "btn btn-primary" %>
+  </div>
+
+<% end %>

@@ -1,0 +1,226 @@
+<!-- Facebook Conversion Code for Click throughs -->
+<script>(function() {
+var _fbq = window._fbq || (window._fbq = []);
+if (!_fbq.loaded) {
+var fbds = document.createElement('script');
+fbds.async = true;
+fbds.src = '//connect.facebook.net/en_US/fbds.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(fbds, s);
+_fbq.loaded = true;
+}
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6019510801438', {'value':'0.01','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6019510801438&amp;cd[value]=0.01&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+<% @title=@company.company_name_proper + " Plans and Rankings | @company.company_name Plan Details | Energy Simply" %>
+<% @description=@company.company_name_proper + " Plans, rankings, links, and contact info, and " +  @company.company_name_proper + " reviews." %>
+
+<div class='standard-es-head row'>
+  <% if @zip.present? && @company.present? %>
+      <div class='pull-right pp-compare-review-breadcrumb'>
+        <br>
+        <%= @company.tdu_name %>&nbsp;>&nbsp;
+        <%= @zip.zip %>&nbsp;>&nbsp;
+        <%= @home_type %>&nbsp;&nbsp;
+        <%= link_to('Change','/compare-power-plans/' +
+          (@company.company_name).gsub( /\W/, '-') +
+          '?id=' + @company.id.to_s +
+          '&reset=true') %>
+      </div>
+<% end %>
+  <h1 class="review-company"><%=@company.company_name_proper %></h1>
+</div>
+<div class='standard-body'>
+
+  <% if @company.company_description != nil %>
+    <p class="company-description"><%= @company.company_description %></p>
+  <% end %>
+
+  <% unless ( current_user.present? || (@zip.present?)  )%>
+    <div class="zip_lookup_form">
+      <h4>Enter your zip code to see the best plans offered by <%= @company.company_name_proper %>.</h4>
+      <%= render 'zip_lookup_pp_form' %>
+    </div>
+  <% end %>
+
+
+    <table class='table table-pp-compare-review'>
+      <thead>
+        <tr class='colhead tr-pp-compare-review'>
+        <th>Company URL</th>
+        <th>Phone</th>
+        <th>Power To Choose Rating</th>
+        <th>BBB Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class='tbody tr-pp-compare-review'>
+        <td><%= link_to(@company.url_main, @co_url_click, target: "_blank", class: 'co-review-link') %></td>
+        <td><%= @company.phone %></td>
+        <td><%= link_to(@company.p2c_rating, @ptc_click, target: "_blank", class: 'co-review-link') %></td>
+        <td><%= link_to(@company.bbb_grade, @bbb_click, target: "_blank", class: 'co-review-link') %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <% if  @no_match_company_TDU == true && @zip.present? %>
+    <h4>This Company Does Not Have A Plan For Your Area (<%= @zip.zip %>)</h4>
+  <% end %>
+
+  <% unless @show_plan_specifics == true %>
+     <table class='table table-pp-compare-review-detail no-height'>
+      <tbody class='no-height'>
+        <tr class='no-height'>
+          <td class='no-height grey-bk'>&nbsp;</td>
+          <td class='no-height grey-bk'>&nbsp;</td>
+        </tr>
+      </tbody>
+     </table>
+  <% else %>
+    <p class='pp-compare-review-table-fuser'>
+      The best General and Renewable power plans offered by <%= @company.company_name_proper %>
+      are listed below. <span id="review-table-text-spacing"><br/>&nbsp;<br/></span>
+      If you want us to help pick out a plan tailored for you, get you signed up,
+      and keep you in the best plans in the future, just
+      <% if @zip.present? %>
+          <%= link_to "sign up for our Gold Service", home_zip_submission_path(zip: @zip.zip) %>
+      <% else %>
+          <%= link_to "sign up for our Gold Service", root_path %>
+      <% end %>.
+    </p>
+
+    <table class='table table-pp-compare-review-detail'>
+      <tbody>
+        <tr>
+          <%  puts "Logo Is: " + @company.logo_image %>
+          <td> <%= image_tag(asset_path('company_logos/' + @company.logo_image), :alt => "Company Logo") %>
+              <br>General Plan</td>
+
+          <td><%= @company.gen_plan_name %></td>
+
+          <td>
+              <%if @company.med_house_cost_monthly != nil %>
+                <span class='small-white-text'>Average $/Month</span><br>
+                <span class='large-white-bold-text'>
+                  <%if @company.med_house_cost_monthly>0 %>
+                    <% if @home_type=="Large House" %>
+                      $<%= @company.high_house_cost_monthly %>
+                    <% elsif @home_type=="Apartment" %>
+                      $<%= @company.low_house_cost_monthly %>
+                    <% else %>
+                      $<%= @company.med_house_cost_monthly %>
+                    <% end %>
+                  <% end %>
+                </span>
+              <% end %>
+            <br>
+            <%if @company.med_house_cost_monthly != nil %>
+              <span class='small-white-text'>Average ¢/kWh</span><br>
+              <span class='small-white-bold-text'>
+                  <% if @home_type=="Large House" %>
+                    <%= ((@company.high_house_cost_kwh*1000).round)/10.0 %>&nbsp;¢/kWh
+                  <% elsif @home_type=="Apartment" %>
+                    <%= ((@company.low_house_cost_kwh*1000).round)/10.0 %>&nbsp;¢/kWh
+                  <% else %>
+                    <%= ((@company.med_house_cost_kwh*1000).round)/10.0 %>&nbsp;¢/kWh
+                  <% end %>
+              </span>
+            <% end %>
+          </td>
+
+          <td><font color="#999999">Term:&nbsp;</font><%= @company.gen_term.present? ? @company.gen_term + " mo." : "" %></td>
+
+          <td><%if @company.med_house_cost_monthly != nil %>
+                <%= link_to("Factsheet",@co_gen_factsheet, target: "_blank") %>
+              <% end %>
+          </td>
+
+          <td><%if @company.med_house_cost_monthly != nil %>
+                <%= link_to( "Enroll", @co_gen_enroll, target: "_blank") %>
+              <% end %>
+          </td>
+
+          <td class='xs-hidden'><%= link_to(image_tag(asset_path("Factsheet.jpeg"),
+                          :alt => "enroll"), @co_gen_factsheet, target: "_blank") %>
+          </td>
+
+        </tr>
+        <tr>
+
+          <td><%= image_tag('company_logos/' + @company.logo_image, :alt => "Company Logo") %><br>
+            100% renewable plan</td>
+
+          <td><%= @company.ren_plan_name %></td>
+
+          <td>
+              <% if @company.ren_med_house_cost_monthly != nil %>
+                <span class='small-white-text'>Average $/Month</span><br>
+                <span class='large-white-bold-text'>
+                  <% if @home_type=="Large House" %>
+                    $<%= @company.ren_high_house_cost_monthly %>
+                  <% elsif @home_type=="Apartment" %>
+                    $<%= @company.ren_low_house_cost_monthly %>
+                  <% else %>
+                    $<%= @company.ren_med_house_cost_monthly %>
+                  <% end %>
+                </span>
+              <% else %>
+              <% end %>
+              <br>
+              <%if @company.ren_med_house_cost_monthly != nil %>
+                <span class='small-white-text'>Average ¢/kWh</span><br>
+                <span class='small-white-bold-text'>
+                  <% if @home_type=="Large House" %>
+                    <%= ((@company.ren_high_house_cost_kwh*1000).round)/10.0 %>&nbsp;¢/kWh
+                  <% elsif @home_type=="Apartment" %>
+                    <%= ((@company.ren_low_house_cost_kwh*1000).round)/10.0 %>&nbsp;¢/kWh
+                  <% else %>
+                    <%= ((@company.ren_med_house_cost_kwh*1000).round)/10.0 %>&nbsp;¢/kWh
+                  <% end %>
+                </span>
+              <% end %>
+          </td>
+
+          <td><font color="#999999">Term:&nbsp;</font><%= @company.ren_term.present? ? @company.ren_term + " mo." : "" %></td>
+
+          <td><%if @company.ren_med_house_cost_monthly != nil %>
+                <%= link_to("Factsheet", @co_ren_factsheet, target: "_blank") %>
+              <% end %>
+          </td>
+
+          <td><%if @company.ren_med_house_cost_monthly != nil %>
+                <%= link_to( "Enroll", @co_ren_enroll, target: "_blank") %>
+              <% end %>
+          </td>
+
+          <td class='xs-hidden'><%= link_to(image_tag(asset_path("Factsheet.jpeg"),
+                          :alt => "factsheet"), @co_ren_factsheet, target: "_blank") %>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+
+  <div><script type="text/javascript">
+      $(document).ready(function e(){
+        console.log("yotopo script started");
+        if ($('.yotpo').length > 0){
+          console.log("yotopo found");
+          var e=document.createElement("script");
+          e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/VweJAzIn8B0nfxXXIF7e8jn4LuuzLhU5Bdez9xiP/widget.js";
+          var t=document.getElementsByTagName("script")[0];
+          t.parentNode.insertBefore(e,t);
+        }
+      })();
+  </script></div>
+  <a name= <%= URI.encode(@company.company_name) + "reviews" %>></a>
+  <div class="yotpo yotpo-main-widget"
+  data-product-id="<%= @company.yotpo_id %>"
+  data-name="<%= @company.company_name %>"
+  data-url="https://www.energysimp.ly<%=  URI.parse(request.fullpath).path %>"
+  data-description="<%= @company.company_name %> Reviews">
+  </div>
+</div>

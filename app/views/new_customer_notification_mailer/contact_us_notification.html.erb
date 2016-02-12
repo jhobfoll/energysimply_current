@@ -1,0 +1,18 @@
+	<h3>Contact Us Submission</h3>
+		<table class="table table-striped">
+		  <tr>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		    <th>Email</th>
+		    <th>Question</th>
+		    <th>Sent At</th>
+
+		  </tr>
+			  <tr>
+			    <td><%= @first_name %></td>
+			    <td><%= @last_name %> </td>
+			    <td><%= @email %></td>
+					<td><%= @question %></td>
+					<td><%= DateTime.now.to_formatted_s(:long) %></td>
+			  </tr>
+		</table>

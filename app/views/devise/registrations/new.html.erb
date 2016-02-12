@@ -1,0 +1,60 @@
+<% @title="Sign Up | Energy Simply" %>
+<% @description="Energy Simply does all the work, so you always have the cheapest traditional or renewable electric power plan. We work for you not the power companies." %>
+
+<!-- <div class='standard-es-head row'>
+		<%# if @tdu.present? %>
+			<h3 class='standard-heading'>
+				Great News! Customers in your area have saved as much as $<%#= (@tdu.house_avg - @tdu.house_best) %> every month.
+			</h3>
+		<%# else %>
+			<h3 class='standard-heading'>Customers Like You Have Saved Up To $50 Every Month</h3>
+		<%# end %>
+</div> -->
+
+<!-- <%# if (@cached_visitor.sign_up_type == "choice_served") %>
+	<div class='plan-choice col-md-5'>
+		<%#= render '/pages/choose_plan_form' %>
+	</div>
+<%# end %> -->
+
+<!-- <hr class='visible-sm visible-xs'> -->
+
+		<% if (@cached_visitor.sign_up_type == "choice_served") %>
+
+			<div id='leftFill' class='w15 left-fill-sign-up hidden-xs'>&nbsp;</div>
+
+			<%= render "/shared/sign_up_progress_header" %>
+
+			<div class='signUpWrapper'>
+
+				<div class='sign-up-body col-md-5'>
+				<!--<%= link_to "Click Here To Sign Up With Facebook", user_omniauth_authorize_path(:facebook) %>
+					or fill out the form below: -->
+					<%= render "form_Served" %>
+				</div>
+
+				<div id='whyLoveES'>
+					<%= render "why_love_es" %>
+				</div>
+
+			</div>
+
+			<div id='rightFill' class='w15 right-fill-sign-up hidden-xs'>&nbsp;</div>
+
+		<% elsif (@cached_visitor.sign_up_type == "choice_not_served")  %>
+			<div class='sign-up-not-served-wrapper'>
+				<!--<%= link_to "Click Here To Sign Up With Facebook", user_omniauth_authorize_path(:facebook) %>
+					or fill out the form below: -->
+
+				<%= render "form_not_served_choice" %>
+			</div>
+
+		<% else %>
+			<div class='sign-up-not-served-wrapper'>
+				<!--<%= link_to "Click Here To Sign Up With Facebook", user_omniauth_authorize_path(:facebook) %>
+					or fill out the form below: -->
+
+				<%= render "form_no_choice" %>
+			</div>
+
+		<% end %>

@@ -1,0 +1,83 @@
+<h3 class='savingsTotalTop'>You could save <span id='savingsBlue'>$<span id='savingsTotalTopTotal'></span> PER YEAR</span><br/>
+   by signing up&nbsp;now.</h3>
+
+<div id="calc-savings-buttons-wrapper_top" class='visible-xs'>
+  <div class='calc-savings-button'>
+    <%= link_to ("Sign&nbsp;Up").html_safe, new_user_registration_path, class: 'calculator-choice-btn' %>
+  </div>
+  <div class='calc-savings-button'>
+    <%= link_to ("Learn&nbsp;More").html_safe, how_it_works_path, class: 'calculator-choice-btn', id: 'calculatorLearnMoreButton' %>
+  </div>
+</div>
+
+<div id='legend_top_wrapper' class='visible-xs'>
+  <div id="legendGroup1">
+    <span class='legend_1a'></span><span class='legend_1b'>Current Rate</span>
+  </div>
+  <div id="legendGroup2">
+    <span class='legend_2a'></span><span class='legend_2b'>Best Price</span>
+  </div>
+</div>
+
+<table class="table table-striped" id="calculatorOutputTableBackground">
+  <tr class='calculator-output-table-row'>
+    <th>
+      <span class='calc-col-header' id='calcCol1Header'>Your Current Costs vs The&nbsp;Best&nbsp;Plan</span>
+    </th>
+    <th>
+      <span class='calc-col-header' id='calcCol2Header'>Your Savings</span>
+    </th>
+  </tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr class='calculator-output-table-row'><td id='totalSavingsLabel'>Total Savings</td><td>&nbsp;</td></tr>
+</table>
+
+<div class='row'>
+  <div id="current_plan_output" class="col-xs-7 col-sm-5">
+    <svg class="chart chart_current_usage"></svg>
+  </div>
+
+  <div id="savings_output" class="col-xs-2 col-sm-3">&nbsp;</div>
+
+  <div id="chart_legend_and_buttons_right_wrapper" class="hidden-xs col-sm-4">
+
+      <div id="legendGroup1">
+        <span class='legend_1a'></span><span class='legend_1b'>Current Rate</span>
+      </div>
+      <div id="legendGroup2">
+        <span class='legend_2a'></span><span class='legend_2b'>Best Price</span>
+      </div>
+
+    <div id="calc-savings-buttons-wrapper" class='hidden-xs'>
+      <!-- SignUp and Learn More buttons go here -->
+      <div class='calc-savings-button'>
+        <%= link_to ("Sign&nbsp;Up").html_safe, new_user_registration_path, class: 'calculator-choice-btn btn' %>
+      </div>
+      <div class='calc-savings-button'>
+        <%= link_to ("Learn&nbsp;More").html_safe, how_it_works_path, class: 'calculator-choice-btn btn', id: 'calculatorLearnMoreButton' %>
+      </div>
+    </div>
+
+  </div>
+  <div id="calc-savings-buttons-wrapper" class='visible-xs'>
+    <!-- SignUp and Learn More buttons go here -->
+    <div class='calc-savings-button'>
+      <%= link_to ("Sign&nbsp;Up").html_safe, new_user_registration_path, class: 'calculator-choice-btn' %>
+    </div>
+    <div class='calc-savings-button'>
+      <%= link_to ("Learn&nbsp;More").html_safe, how_it_works_path, class: 'calculator-choice-btn', id: 'calculatorLearnMoreButton' %>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,31 @@
+<h1>Listing email_refs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Ref date</th>
+      <th>Refd by</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @email_refs.each do |email_ref| %>
+      <tr>
+        <td><%= email_ref.email %></td>
+        <td><%= email_ref.ref_date %></td>
+        <td><%= email_ref.refd_by %></td>
+        <td><%= link_to 'Show', email_ref %></td>
+        <td><%= link_to 'Edit', edit_email_ref_path(email_ref) %></td>
+        <td><%= link_to 'Destroy', email_ref, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email ref', new_email_ref_path %>

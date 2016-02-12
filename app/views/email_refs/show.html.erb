@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @email_ref.email %>
+</p>
+
+<p>
+  <strong>Ref date:</strong>
+  <%= @email_ref.ref_date %>
+</p>
+
+<p>
+  <strong>Refd by:</strong>
+  <%= @email_ref.refd_by %>
+</p>
+
+<%= link_to 'Edit', edit_email_ref_path(@email_ref) %> |
+<%= link_to 'Back', email_refs_path %>

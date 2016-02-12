@@ -1,0 +1,17 @@
+<span class='hidden-xs'><b>Take The First Step</b><br><span class='enter-zip'>See how much you can save</span></span>
+
+<span class='visible-xs'><b>Take The First Step</b><br><span class='enter-zip'>See how much you can save</span></span>
+
+<%= form_tag home_zip_submission_path, method: :get, id: 'home_zip_lookup_form' do %>
+
+  <div class='form-group zip-form-zip'>
+    <%= text_field_tag :zip, params[:zip], placeholder: "Enter Your Zip Code",
+                  class: "form-control zip-entry" %>
+  </div>
+
+  <br>
+  <div class="form-group">
+  	<%= submit_tag "Start Saving",
+  		class: "btn btn-large btn-primary", id: 'home-zip-submit' %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>Listing tdus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name&nbsp;&nbsp;</th>
+      <th>Apt avg&nbsp;&nbsp;</th>
+      <th>Apt best&nbsp;&nbsp;</th>
+      <th>House avg&nbsp;&nbsp;</th>
+      <th>House best&nbsp;&nbsp;</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tdus.each do |tdu| %>
+      <tr>
+        <td><%= tdu.name %>&nbsp;&nbsp;</td>
+        <td><%= tdu.apt_avg %>&nbsp;&nbsp;</td>
+        <td><%= tdu.apt_best %>&nbsp;&nbsp;</td>
+        <td><%= tdu.house_avg %>&nbsp;&nbsp;</td>
+        <td><%= tdu.house_best %>&nbsp;&nbsp;</td>
+        <td><%= link_to 'Edit', edit_tdu_path(tdu) %>&nbsp;&nbsp;</td>
+        <td><%= link_to 'Destroy', tdu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

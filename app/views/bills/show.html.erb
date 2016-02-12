@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Svc address 1:</strong>
+  <%= @bill.svc_address_1 %>
+</p>
+
+<p>
+  <strong>Svc address 2:</strong>
+  <%= @bill.svc_address_2 %>
+</p>
+
+<p>
+  <strong>Current provider:</strong>
+  <%= @bill.current_provider %>
+</p>
+
+<p>
+  <strong>Kwh usage:</strong>
+  <%= @bill.kwh_usage %>
+</p>
+
+<p>
+  <strong>Energy charge:</strong>
+  <%= @bill.energy_charge %>
+</p>
+
+<p>
+  <strong>Usage charge:</strong>
+  <%= @bill.usage_charge %>
+</p>
+
+<p>
+  <strong>Esi:</strong>
+  <%= @bill.esi_id %>
+</p>
+
+<p>
+  <strong>Meter number:</strong>
+  <%= @bill.meter_number %>
+</p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @bill.account_number %>
+</p>
+
+<p>
+  <strong>Plan end date:</strong>
+  <%= @bill.plan_end_date %>
+</p>
+
+<p>
+  <strong>Last bill amount:</strong>
+  <%= @bill.last_bill_amount %>
+</p>
+
+<p>
+  <strong>Bill Image</strong>
+  <%= @bill.bill_image.url %>
+</p>
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>

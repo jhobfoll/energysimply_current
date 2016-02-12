@@ -1,0 +1,191 @@
+
+<% if @state == 'TX' %>
+	<%= render 'pp_tx' %>
+
+<% elsif @state == 'IL' %>
+	<%= render 'pp_il' %>
+
+<% end %>
+
+<% if @zip.present? %>
+  <% unless current_user.present? %>
+    <div align='right'>
+        <%= @zip.zip %>&nbsp;>&nbsp;
+        <%= @cached_visitor.home_type %>&nbsp;&nbsp;
+        <%= link_to('Change','/compare-power-plans?reset=true') %></div>
+  <% end %>
+<% end %>
+
+<div class='standard-body'>
+
+  <p>At <a href='https://www.EnergySimp.ly'>EnergySimp.ly</a> we think it is important customers have an
+  unfiltered view of all their options.<br/><br/>Most commercial sites only tell you part of the story.
+  The full story reflects your ability to pick any company out there that gives you the best mix
+  of offering, customer service, and price.<br/><br/>Feel free to explore on your own, or
+  <% if @zip.present? %>
+    <%= link_to 'let us select and keep you in the best plan ', home_zip_submission_path(zip: @zip.zip) %>
+  <% else %>
+    <%= link_to 'let us select and keep you in the best plan ', root_path %>
+  <% end %>
+  so you don't have to.<br>
+
+  <div class='col-md-12 row'>
+    <% unless (current_user.present? || ( @zip.present? && @companies.present? ))%>
+
+          <div><br/>
+            <h4 class='blue-bold'>Enter Your Zip Code and Home Type for plan costs in your area.</h4>
+            <%= render 'zip_lookup_pp_form' %>
+          </div>
+
+    <% end %>
+  </div>
+
+  <div class='col-md-12 row'>
+      <br/>
+      <div class='col-md-4 fb-like' data-href='https://www.facebook.com/EnergySimply'
+             data-layout='standard' data-action='like' data-show-faces='true' data-share='true'>
+      </div>
+      <div class='col-md-4 lt-blue bold help-grow-div'>Help grow the EnergySimp.ly community!</div>
+          <script>
+            (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0';
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+          </script>
+      </div><br/>
+
+
+      <div class='col-md-12 twitter-div' align='left'>
+        <a href='https://twitter.com/energysimplyusa' class='twitter-follow-button' data-show-count='false' data-lang='en'>Follow @EnergySimplyUSA</a>
+        <script>
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');
+        </script>
+      </div>
+
+
+
+  <% unless @companies.blank? %>
+    <div class='row col-md-12 click-to-sort'><br/>Click on any column header to sort</div>
+    <!-- Table -->
+    <table class='table table-pp-compare'>
+      <thead>
+        <tr class='colhead tr-pp-compare'>
+            <th class='header sortable'>Energy Company</th>
+            <th class='header sortable'>Average $/Month BestGeneral Plan</th>
+            <th class='header sortable'>Average $/Month Best 100% Renewable Plan</th>
+            <th class='header sortable'>Power To Choose rating</th>
+            <th class='header sortable'>BBB rating<sup>1</sup></th>
+            <th class='header {sorter: false}'>Customer Reviews</th>
+        </tr>
+      </thead>
+
+        <% @companies.each do |company| %>
+            <% company_url = '/compare-power-plans/' +
+                ( (company.company_name).gsub( /\W/, '-' ) ) +
+                (@zip.present? ? '?id=' + company.id.to_s : '') %>
+            <% company_review_url = '/compare-power-plans/' +
+                   ( (company.company_name).gsub( /\W/, '-' ) ) +
+               (@zip.present? ? '?id=' + company.id.to_s : '') +
+                  '#' + URI.encode(company.company_name) + 'reviews' %>
+            <% ptc_click = '/offsite-click/track?zip=' + (@zip.present? ? @zip.zip : '') + '&url=' + URI.encode(company.ptc_url) + '&userid=' + (current_user.present? ? current_user.id.to_s : '') %>
+              <% bbb_click = '/offsite-click/track?zip=' + (@zip.present? ? @zip.zip : '') + '&url=' + URI.encode(company.bbb_url) + '&userid=' + (current_user.present? ? current_user.id.to_s : '') %>
+
+            <tr>
+              <td><%= link_to(  company.company_name_proper, company_url) %></td>
+
+                <td>
+                  <% if @zip.present? %>
+                    <% if company.med_house_cost_monthly != nil %>
+                      <% if (@home_type)=='Large House' %>
+                          $<%= company.high_house_cost_monthly %>
+                      <% elsif (@home_type)=='Apartment' %>
+                          $<%= company.low_house_cost_monthly %>
+                      <% else %>
+                          $<%= company.med_house_cost_monthly %>
+                        <% end %>
+                    <% end %>
+                         <% else %>
+                     Enter zip to compare
+                <% end %>
+              </td>
+
+              <td>
+                <% if @zip.present? %>
+                  <% if company.ren_med_house_cost_monthly != nil %>
+                       <% if (@home_type)=='Large House' %>
+                        $<%= company.ren_high_house_cost_monthly %>
+                     <% elsif (@home_type)=='Apartment' %>
+                        $<%= company.ren_low_house_cost_monthly %>
+                         <% else %>
+                        $<%= company.ren_med_house_cost_monthly %>
+                      <% end %>
+                       <% end %>
+                <% else %>
+                  Enter zip to compare
+                <% end %>
+              </td>
+
+              <td><%= link_to(company.p2c_rating, ptc_click, target: '_blank') %></td>
+              <td><%= link_to(company.bbb_grade, bbb_click, target: '_blank') %></td>
+                      <td><%= link_to('Write a Review', company_review_url) %></td>
+            </tr>
+        <% end %>
+
+    </table>
+
+  <% else %> <!-- @companies is blank because 'bad zip' or 'change/reset' clicked -->
+    <% unless ((params[:reset])=='true') %> <!-- the following only shown for bad-zip -->
+      <br>
+      <div class='col-md-12 row'>
+        <h4 class='center'>We Do Not Have Information For That Zip Code</h4>
+      </div>
+    <% end %>
+  <% end %>
+
+
+  <div class='compare-plans-explanation'>
+      <p>Average monthly price is based on the average energy use of a household in the state of Texas
+        for each month of the year using Energy Information Administration (EIA) data.  The average is
+        only calculated for the length of the term of each plan.  Only the lowest priced general and
+        100% renewable plan from each provider is shown.
+        <br/><br>
+        The Power To Choose Complaint Score is based on the ratio of customer complaints a company has
+        received in the past 6 months compared to other companies. The more  a company has, the lower
+        the complaint ratio. 5  = Lowest Complaint Ratio, 4 = Lower than Average, 3 = Average, 2 = Higher
+        than Average, 1 = Highest Complaint Ratio
+        <br/><br/>
+        1 Better Business Bureau is a registered trademark of the Council of Better Business Bureaus
+      </p>
+  </div>
+
+  <% if current_user.present? && current_user.admin == true %>
+    <h3>Import Company Ranking Info</h3>
+
+    <%= form_tag import_company_rankings_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag 'Import' %>
+    <% end %>
+
+  <% end %>
+
+</div>
+
+<script type='text/javascript' charset='utf-8'>
+
+     $(document).ready(function () {
+        $.tablesorter.formatInt = function (s) {
+            var i = parseInt(s);
+            return (isNaN(i)) ? null : i;
+        };
+        $.tablesorter.formatFloat = function (s) {
+            var i = parseFloat(s);
+            return (isNaN(i)) ? null : i;
+        };
+        $('table').tablesorter({
+          sortList: [[1,0],[0,0]]
+        });
+      });
+    </script>

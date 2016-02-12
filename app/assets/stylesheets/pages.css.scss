@@ -1,0 +1,67 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.location-image{
+		height: auto;
+		display:block;
+		width: 69%;
+		margin: 0 auto;
+}
+
+.mission-list{
+		line-height: 20px;
+		padding-bottom: 4px;
+		font-size: 18px;
+}
+
+.mission-list-item{
+		padding-bottom: 12px;
+}
+
+.terms h5 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#contactUsFormWrapper, #contactUsSubmitResponseDiv{
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	height: 100%;
+	padding-left: 25px;
+}
+
+#contactUsHeading{
+	padding-bottom: 50px;
+	text-align: left;
+}
+
+#contactUsSubmitResponseText{
+	min-height: 240px;
+}
+
+#contactNameEmailDiv, #contactQuestionDiv{
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#contactName, #contactEmail{
+	border-radius: 5px;
+	width: calc(47% - 3px)
+}
+
+#contactEmail{
+	margin-right: 0px;
+}
+
+#contactQuestion{
+	border-radius: 5px;
+	height: 10em;
+	width: 94%;
+	margin: 0 auto;
+}
+
+#contactUsSubmitDiv{
+	padding-top: 50px;
+}

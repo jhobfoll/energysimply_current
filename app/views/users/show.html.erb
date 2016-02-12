@@ -1,0 +1,52 @@
+<p>
+<div class="row">
+	<div class="span6 offset3">
+		<div class="well">
+			<p><b>Last Name:</b>
+				<%= @user.last_name %>
+			</p>
+
+			<p><b>First Name:</b>
+				<%= @user.first_name %>
+			</p>
+
+			<p><b>Email:</b>
+				<%= @user.email %>
+			</p>
+
+			<p><b>Phone:</b>
+				<%= @user.phone %>
+			</p>
+
+			<p><b>Address 1:</b>
+				<%= @user.address_1 %>
+			</p>
+
+			<p><b>Address 2:</b>
+				<%= @user.address_2 %>
+			</p>
+
+			<p><b>City:</b>
+				<%= @user.zip.city if @user.zip.present? %>
+			</p>
+
+			<p><b>State:</b>
+				<%= @user.zip.state if @user.zip.present? %>
+			</p>
+
+			<p><b>Zip:</b>
+				<%= @user.zip.zip if @user.zip.present? %>
+			</p>
+			
+			<p><b>Created:</b>
+				<%= @user.created_at %>
+			</p>
+
+			<%= link_to 'Edit', edit_user_path(@user) %> <br />
+
+			<%= link_to 'Users List', users_path %>
+
+		</div>
+	</div>
+</div>
+</p>

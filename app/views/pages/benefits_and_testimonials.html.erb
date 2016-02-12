@@ -1,0 +1,160 @@
+<% @title="Customer Testimonials | Energy Simply" %>
+<% @description="Our customers love Energy Simply.  See what they have to say about how we've helped them sign up for electric power." %>        
+
+	<!--<section class="panel-video">
+		<div class="page-top-title2">
+			<h2>Energy simply keeps you in the cheapest  <br>
+			power plan automatically.
+			</h2>
+		</div>
+
+		<div class="simply-keep-wrap clearfix">
+			<div class="video-insert">
+				<h3><span></span> Watch this video to learn about our service</h3>
+				<div class="embed-responsive embed-responsive-16by9">
+  					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L2qGaGnKGZI">
+  					</iframe>
+				</div>
+			</div>
+			<!--video-insert-->
+			<!--<div class="feature-text clearfix">
+				<div class="feature-text-block">
+					<div class="feature-title clearfix">
+						<span class="title-icon"></span>
+						<h4>Energy Simply is NOT an Electric Company</h4>
+					</div>
+					<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>-->
+				<!--</div>
+				<!--feature-text-block-->
+				<!--<div class="feature-text-block">
+					<div class="feature-title clearfix">
+						<span class="title-icon"></span>
+						<h4>We get you the best plans using proprietary modeling</h4>
+					</div>
+					<!--<p>consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>-->
+				<!--</div>
+				<!--feature-text-block-->
+				<!--<div class="feature-text-block">
+					<div class="feature-title clearfix">
+						<span class="title-icon"></span>
+						<h4>We sign you up and automatically switch you at expiration or whenever we can save you money</h4>
+					</div>
+					<!--<p>Dolor sit amet, consectetur adipisicing elit</p>-->
+				<!--</div>
+				<!--feature-text-block-->
+				<!--<div class="feature-text-block">
+					<div class="feature-title clearfix">
+						<span class="title-icon"></span>
+						<h4>Average customers save $50+ EVERY month</h4>
+					</div>
+					<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>-->
+				<!--</div>
+				<div class="feature-text-block">
+					<div class="feature-title clearfix">
+						<span class="title-icon"></span>
+						<h4>Energy Simply only costs $5/month and comes with a money-back guarantee</h4>
+					</div>
+					<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>-->
+				<!--</div>
+				<!--feature-text-block-->
+				<!--<div class="bottom-button2">
+					<a href="#" class="btn btn-top">CALCULATE SAVINGS</a>
+					<a href="/users/sign_up?plan_grade=gold" class="btn btn-brand">SIGN UP</a>
+				</div>
+			</div>
+			<!--feature-text-->
+		<!--</div>
+		<!--simply-keep-wrap-->
+	<!--</section>
+	<!--panel-video-->
+
+<!--	<div class="scroll-wrap">
+		<a href="#go_testimonial">
+			<span class="text-line">Scroll down to see what</span>
+			<span class="inline-arrow"></span>
+			<span class="text-line">our customers are saying</span>
+		</a>
+	</div>
+	<!--scroll-wrap-->
+
+
+	<section class="panel-testimonial" id="go_testimonial">
+		<div class="testimonial-title">
+			<span class="icon-quote">
+				<%= image_tag("img/icon-info6.png", :alt => "quote-icon") %>
+			</span>
+			<h2>our awesome clients</h2>
+		</div>
+		
+		<div class="testimonial-start">
+			<ul class="ul-quote">
+				<li class="by-left">
+					<div class="avatar">
+                     <%= image_tag('img/avatar1.png', :alt => "") %>
+                    </div>
+                    <blockquote class="quote-content">
+  						<p>“Energy Simply provides an elegant solution to managing my residential energy needs.  I save meaningfully through the recommended low cost energy plans and by eliminating the time-consuming search process from my schedule.”</p>
+  						<footer>Nick M.</br><span class="location-italics">Houston, TX</span></footer>
+					</blockquote>
+				</li>
+				<li class="by-right">
+					<div class="avatar">
+                      <%= image_tag('img/anne_s.jpg', :alt => "") %>
+                    </div>
+                    <blockquote class="quote-content">
+  						<p>“Energy Simply quickly helped me purchase 100% renewable electricity AND save money at the same time. I'm so happy knowing I don't have to worry about making sure I'm with the right electricity supplier anymore - they'll worry about it for me”</p>
+  						<footer>Anne S.</br><span class="location-italics">Chicago, IL</span></footer>
+					</blockquote>
+				</li>
+				<li class="by-left">
+					<div class="avatar">
+                      <%= image_tag('img/kelly_d.jpg', :alt => "") %>
+                    </div>
+                    <blockquote class="quote-content">
+  						<p>“Take my information and keep me locked into the cheapest electricity. I don't want to worry about it! That's what I told Energy Simply and they have delivered. I'm now saving money on my electricity bill and don't have to think about it.”</p>
+  						<footer>Kelly D.</br><span class="location-italics">Chicago, IL</span></footer>
+					</blockquote>
+				</li>
+				
+				<!--<li class="by-right">
+					<div class="avatar">
+                      <%= image_tag('img/avatar2.png', :alt => "") %>
+                    </div>
+                    <blockquote class="quote-content">
+  						<p>“Proin iaculis purus consequat sem cure  digni ssim donec porttitora entum suscipit aenean rhoncus.”</p>
+  						<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+					</blockquote>
+				</li> -->
+			</ul>
+		</div>
+		<!--testimonial-start-->
+
+		<div class="page-signup-btn">
+			<a href="/users/sign_up?plan_grade=gold" class="btn btn-brand">SIGN UP</a>
+		</div>
+		<!--page-signup-btn-->
+		
+	</section>
+	<!--sign-up-easy-->
+
+	
+ 	<script>
+		/* script for click to go each section with animation */
+		$(function() {
+		  $('a[href*=#]:not([href=#])').click(function() {
+		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		      if (target.length) {
+		        $('html,body').animate({
+		          scrollTop: target.offset().top
+		        }, 1000);
+		        return false;
+		      }
+		    }
+		  });
+		});
+	</script>
+    </body>
+</html>

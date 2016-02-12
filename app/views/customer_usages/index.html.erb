@@ -1,0 +1,49 @@
+<h1>Listing customer_usages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mo 01</th>
+      <th>Mo 02</th>
+      <th>Mo 03</th>
+      <th>Mo 04</th>
+      <th>Mo 05</th>
+      <th>Mo 06</th>
+      <th>Mo 07</th>
+      <th>Mo 08</th>
+      <th>Mo 09</th>
+      <th>Mo 10</th>
+      <th>Mo 11</th>
+      <th>Mo 12</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer_usages.each do |customer_usage| %>
+      <tr>
+        <td><%= customer_usage.mo_01 %></td>
+        <td><%= customer_usage.mo_02 %></td>
+        <td><%= customer_usage.mo_03 %></td>
+        <td><%= customer_usage.mo_04 %></td>
+        <td><%= customer_usage.mo_05 %></td>
+        <td><%= customer_usage.mo_06 %></td>
+        <td><%= customer_usage.mo_07 %></td>
+        <td><%= customer_usage.mo_08 %></td>
+        <td><%= customer_usage.mo_09 %></td>
+        <td><%= customer_usage.mo_10 %></td>
+        <td><%= customer_usage.mo_11 %></td>
+        <td><%= customer_usage.mo_12 %></td>
+        <td><%= link_to 'Show', customer_usage %></td>
+        <td><%= link_to 'Edit', edit_customer_usage_path(customer_usage) %></td>
+        <td><%= link_to 'Destroy', customer_usage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer usage', new_customer_usage_path %>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<link rel='shortcut icon' href='https://s3.amazonaws.com/Energysimply/Favicon.png' />
+<html>
+<head>
+  <script src="//cdn.optimizely.com/js/1929190520.js"></script>
+
+  <meta name='google-site-verification' content='Pul-osDwTw_xncivybYWj9697QRo_32YxIRT4hVawfU' />
+  <meta name='google-site-verification' content='OjLKDV6gP8b3Y6NtAQcA1J-TeGPUQVAJ2DV3G2df0JI' />
+  <meta name='msvalidate.01' content='E7E1654F59EF1D93B0EE0706968970BC' />
+
+  <title><%= @title %></title>
+
+  <meta name='description' content=<%= @description %> />
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, target-densitydpi=medium-dpi" />
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+
+<!-- start SegmentIO -->
+<script type="text/javascript">
+  window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
+  window.analytics.load("<%= ENV["SEGMENT_WRITE_KEY"] %>");
+  window.analytics.page();
+</script>
+<!-- end SegmentIO -->
+
+<!-- Start AdRoll -->
+<script type="text/javascript">
+adroll_adv_id = "6IQC4ZZNRZBH5ODD44ARZS";
+adroll_pix_id = "SCLLDXGTOZFR5FKUIQZWV5";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+<!-- End AdRoll -->
+
+</head>
+<!--[if IE ]>
+<body class="ie">
+<![endif]-->
+<!--[if !IE]>-->
+<body>
+<!--<![endif]-->
+
+  <% if ( ( current_page?(root_path)) || ( current_page?(cheapest_electric_path)) ||
+          ( current_page?(texas_plans_path)) || ( current_page?(tx_plans_path)) ||
+          ( current_page?(cheap_plans_path)) || ( current_page?(electric_companies_path)) ||
+          ( current_page?(renewable_power_path))
+  ) %>
+
+    <%= render 'layouts/header' %>
+
+        <div class='container' style='width:100%; padding:0 0 0 0; margin:0 0 0 0;'>
+           <% flash.each do |name, msg| %>
+             <%= content_tag(:div, msg, class: 'alert alert-info') %>
+           <% end %>
+           <%= yield %>
+        </div>
+
+        <div id='home-three-points-div' class='col-md-12 row'>
+            <%= render "home_three_points" %>
+        </div>
+
+        <div id='home-about-div' class='col-md-12 row'>
+            <%= render "about_energy_simply_content" %>
+        </div>
+
+      <div id='home-quotes-div' class='col-md-12 row'>
+            <%= render "quotes_slider" %>
+        </div>
+
+            <div id='home-featured-div' class='col-md-12 row center'>
+              <h3 class='featured-header'>CHALLENGES IN CHOOSING POWER PLANS HAVE BEEN MENTIONED IN:</h3>
+              <div class='narrow-hr quotes-hr center-block'><hr></div><br/>
+              <div class='three-points-left-spacer hidden-xs col-sm-1'>&nbsp;</div>
+              <div class='col-md-3'>
+                <%= link_to(image_tag(asset_path("featured_nyt.png"), :alt => "New York Times"), "http://www.nytimes.com/2007/12/02/nyregion/nyregionspecial2/02powerwe.html") %>
+              </div>
+              <div class='three-points-left-spacer hidden-xs col-sm-1'>&nbsp;</div>
+              <div class='col-md-3'>
+                   <%= link_to(image_tag(asset_path("featured_forbes.png"), :alt => "Forbes"), "http://www.forbes.com/sites/peterdetwiler/2014/02/28/our-retail-electricity-bill-just-killed-our-summer-vacation/") %>
+              </div>
+              <div class='three-points-left-spacer hidden-xs col-sm-1'>&nbsp;</div>
+              <div class='col-md-3'>
+                <%= link_to(image_tag(asset_path("featured_lifehacker.png"), :alt => "Lifehacker"), "http://twocents.lifehacker.com/lower-your-electric-bill-with-ideal-season-rates-1538242731") %>
+              </div>
+            </div>
+
+        <div id='home-wrap-around-footer' class='row col-md-12' >
+          <div id='footer'>
+                  <%= render 'layouts/footer' %>
+          </div>
+        </div>
+
+  <% elsif ( current_page?(power_to_choose_path)) %>
+
+    <%= render 'layouts/header' %>
+
+        <div class='row' id="lightBlueBackgroundSidePanels">
+            <div class='container' id='containerPowerToChoose'>
+               <% flash.each do |name, msg| %>
+                 <%= content_tag(:div, msg, class: 'alert alert-info') %>
+               <% end %>
+               <%= yield %>
+            </div>
+        </div>
+
+        <div id='home-wrap-around-footer' class='row col-md-12' >
+          <div id='footer'>
+              <%= render 'layouts/footer' %>
+          </div>
+        </div>
+
+  <% elsif ( current_page?(savings_calculator_path) || current_page?(savings_calculator_calculate_path) ||
+               (request.fullpath).include?('contact_us') || (request.fullpath).include?('sign_up') ||
+               (request.fullpath).include?('users/payment') || (request.fullpath).include?('users/submit_bill')
+            ) %>
+
+    <%= render 'layouts/header' %>
+
+      <div class='row' id="lightBlueBackgroundSidePanels">
+          <div class='container' id='containerLightBlueBackgroundSidePanels'>
+             <% flash.each do |name, msg| %>
+               <%= content_tag(:div, msg, class: 'alert alert-info') %>
+             <% end %>
+             <%= yield %>
+          </div>
+      </div>
+
+      <div id='home-wrap-around-footer' class='row col-md-12' >
+        <div id='footer'>
+            <%= render 'layouts/footer' %>
+        </div>
+      </div>
+
+  <% else %>
+
+    <%= render 'layouts/header' %>
+     <div class='standard-background'>
+        <div class='container' style='height:100%'>
+          <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: 'alert alert-info') %>
+          <% end %>
+          <%= yield %>
+        </div>
+     </div>
+     <div id='footer'>
+       <%= render 'layouts/footer' %>
+     </div>
+
+  <% end %>
+
+  <script>
+    <% if URI.parse(request.fullpath).path == root_path %>
+      $(document.body).attr('id', 'home');
+      $('#homenav').addClass('current');
+    <% elsif URI.parse(request.fullpath).path == about_energy_simply_path %>
+      $(document.body).attr('id', 'about');
+      $('#aboutnav').addClass('current');
+    <% elsif (request.fullpath).include?('blog') %>
+      $(document.body).attr('id', 'blog');
+      $('#blognav').addClass('current');
+    <% elsif URI.parse(request.fullpath).path == compare_power_plans_path %>
+      $(document.body).attr('id', 'comparepp');
+      $('#compareppnav').addClass('current');
+    <% end %>
+  </script>
+
+
+  <% if @new_sign_up == true %>
+    <script>
+    <% puts '----------Track Alias Script Started - @new_sign_up == true' %>
+      $(function(){
+        js_sio_user_id = <%= @sio_userID %>
+        console.log('sio_user_id is: ' + js_sio_user_id);
+        if ((js_sio_user_id) > 0){
+          //analytics.alias(js_sio_user_id);
+          analytics.alias(js_sio_user_id, function(data){
+              analytics.identify(js_sio_user_id);
+              console.log('ran identify after alias, and alias returned: ' + data);
+            }
+          );
+        }
+      });
+    </script>
+  <% end %>
+
+
+  <% puts '----------Track Identify State: ' + @track_identify.to_s + " and/but @new_sign_up == " + @new_sign_up.to_s %>
+  <% if @track_identify == true && ( @new_sign_up.blank? || @new_sign_up != true ) %>
+    <script>
+    <% puts '----------Track Identify Script Started' %>
+      $(function(){
+        js_sio_user_id = <%= @sio_userID %>
+        console.log('sio_user_id is: ' + js_sio_user_id)
+        if ((js_sio_user_id) > 0){
+          analytics.identify(js_sio_user_id);
+        }
+      });
+    </script>
+  <% end %>
+
+  <% if @track == true %>
+    <% if @zip.present? %>
+      <script>
+        $(function(){
+          analytics.track('<%= @track_page_name %>', {
+            someDetailhere: '<%= @track_page_detail %>',
+            reviewCompany: '<%= @track_page_company %>',
+            zip: '<%= @zip.zip %>',
+            city: '<%= @zip.city %>',
+            state: '<%=@zip.state %>',
+            context: { ip: '<%= request.remote_ip %>' }
+          });
+        });
+      </script>
+    <% else %>
+      <script>
+        $(function(){
+          analytics.track('<%= @track_page_name %>', {
+            someDetailhere: '<%= @track_page_detail %>',
+            reviewCompany: '<%= @track_page_company %>',
+            context: { ip: '<%= request.remote_ip %>' }
+          });
+         });
+      </script>
+    <% end %>
+  <% end %>
+
+<!-- Drip -->
+<script type="text/javascript">
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {}; 
+  _dcs.account = '2040103';
+  
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true; 
+    dc.src = '//tag.getdrip.com/2040103.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+
+</body>
+
+</html>

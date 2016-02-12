@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  svc_address_1: MyString
+  svc_address_2: MyString
+  current_provider: MyString
+  kwh_usage: MyString
+  energy_charge: MyString
+  usage_charge: MyString
+  esi_id: MyString
+  meter_number: MyString
+  account_number: MyString
+  plan_end_date: MyString
+  : 
+  last_bill_amount: 9.99
+
+two:
+  svc_address_1: MyString
+  svc_address_2: MyString
+  current_provider: MyString
+  kwh_usage: MyString
+  energy_charge: MyString
+  usage_charge: MyString
+  esi_id: MyString
+  meter_number: MyString
+  account_number: MyString
+  plan_end_date: MyString
+  : 
+  last_bill_amount: 9.99

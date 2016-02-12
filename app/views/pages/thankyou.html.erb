@@ -1,0 +1,66 @@
+<% @title="Thank You | Energy Simply" %>
+<% @description="Thank you for signing up with Energy Simply.  We look forward to keeping you in the cheapest traditional or renewable electric power plan" %>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="jumbotron">
+		<% if ( current_user.plan_grade == 'gold' ) %>
+			<h3>Thanks again for signing up for EnergySimp.ly!<br><br>
+				Within 24 hours we will call you to review the current best plan and switch your plan for you.(if that is the best current option)</h3><br>
+			<h4>If you have any questions or comments, please call us at 832-819-3250
+			or email us at admin@EnergySimp.ly</h4>
+
+		<% elsif ( current_user.plan_grade == 'basic' ) %>
+			<h3>Thanks again for signing up for EnergySimp.ly!<br><br>Within 24 hours you will receive your first report of the best plan currently available.</h3><br>
+			<h4>If you have any questions or comments, please call us at 832-819-3250
+			or email us at admin@EnergySimp.ly</h4>
+
+		<% else %>
+			<h3>Thank you for your interest in EnergySimp.ly.<br><br>
+			We hope to expand to your area soon and we will let you know when we do!</h3>
+
+		<% end %>
+
+</div>
+<br/>
+
+<div class="col-md-12 row">
+	<center><h4><b><font color="#2d3e50">Help grow the EnergySimp.ly community!</font></b></h4></center>
+
+	<div class="col-md-1"></div>
+
+  <div class="col-md-4">
+	   <h4>Refer A Friend to Energy Simply</h4>
+	    <%= render 'email_refs/email_ref_form' %>
+      <% if @ref_link.present? %>
+        <h5>Your Referral Link: <%= link_to(@ref_link, @ref_link) %></h5>
+      <% end %>
+
+	</div>
+
+	<div class="col-md-3">
+		<div class="col-md-12 row"><font color="white">_</font></div>
+		<div class="fb-like" data-href="https://www.facebook.com/EnergySimply" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
+		</div>
+	</div><br/>
+
+	<div class="col-md-3" align="left">
+		<a href="https://twitter.com/energysimplyusa" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @EnergySimplyUSA</a>
+		<script>
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+		</script>
+	</div>
+
+	<div class="col-md-1"></div>
+
+</div>
+
+<div class="col-md-12 row">
+
+</div>

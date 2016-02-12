@@ -1,0 +1,243 @@
+.review-company{
+  font-weight:bold;
+}
+
+.pp-compare-review-breadcrumb{
+  margin-right: -20px;
+  font-size: 11px;
+  > a {
+    color:#F1D406;
+    text-decoration:underline;
+    font-weight:normal;
+  }
+}
+
+table.table-pp-compare-review{
+  max-width: 850px;
+  border-collapse: separate;
+  border: 0px none;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  -o-border-radius:10px;
+  -ms-border-radius:10px;
+  -khtml-border-radius: 10px;
+  border-radius:10px;
+  margin-bottom:0;
+}
+
+.colhead.tr-pp-compare-review{
+  color: #FFF;
+  font-size: 14px;
+  border-right: 1px solid white;
+  border-bottom: 1px solid #B1B1B1;
+  vertical-align: bottom;
+  padding-bottom: 7px;
+    > th{
+      background-color: #617C99;
+      text-align:center;
+      border-bottom: 2px solid #B1B1B1;
+      > a {
+      color: #757575;
+      }
+    }
+    > th:first-child{
+        -moz-border-radius: 10px 0px 0px 0px;
+        -webkit-border-radius: 10px 0px 0px 0px;
+        -o-border-radius: 10px 0px 0px 0px;
+        -ms-border-radius: 10px 0px 0px 0px;
+        -khtml-border-radius: 10px 0px 0px 0px;
+        border-radius: 10px 0px 0px 0px;
+      }
+      > th:nth-child(2){
+        //max-width: 132px;
+      }
+      > th:nth-child(3){
+        //max-width: 158px;
+      }
+      > th:nth-child(4), th:nth-child(5){
+        //max-width:105px;
+      }
+
+      > th:last-child{
+        -moz-border-radius: 0px 10px 0px 0px;
+        -webkit-border-radius: 0px 10px 0px 0px;
+        -o-border-radius: 0px 10px 0px 0px;
+        -khtml-border-radius: 0px 10px 0px 0px;
+        -ms-border-radius: 0px 10px 0px 0px;
+        border-radius: 0px 10px 0px 0px;
+        //min-width: 110px;
+      }
+  }
+  
+.tbody.tr-pp-compare-review {
+    background-color: #E6E6E6;
+    font-size:14px;
+    border-top: 0px none;
+    border-bottom: 1px solid #DDD;
+    > td{
+      color:#D84167;
+      text-align:center; 
+      > a {
+      color: #757575;
+      }
+    }
+    > td:first-child{
+      border-left: 1px solid #B1B1B1;
+    }
+    > td:last-child{
+      border-right: 1px solid #B1B1B1;
+    }
+}
+
+p.company-description{
+    font-size: 15px;
+    line-height: 150%;
+}
+
+p.pp-compare-review-table-fuser{
+  max-width: 850px;
+  background-color: #E6E6E6;
+  padding: 8px 25px;
+  border-style: none solid;
+  border-width: 1px;
+  border-color: #FFF #B1B1B1;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+#review-table-text-spacing{
+  line-height: 100%;
+}
+
+table.table-pp-compare-review-detail{
+  max-width: 850px;
+  margin-top: -10px;
+  border-collapse: separate;
+  border: 0px none;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  -o-border-radius:10px;
+  -ms-border-radius:10px;
+  -khtml-border-radius: 10px;
+  border-radius:10px;
+  
+  > tbody {
+      > tr:last-child{
+        > td {
+          border-bottom: 1px solid #B1B1B1;
+          padding-bottom: 15px;
+        }
+        > td:first-child{
+          -khtml-border-radius: 0px 0px 0px 10px;
+          -moz-border-radius: 0px 0px 0px 10px;
+          -ms-border-radius: 0px 0px 0px 10px;
+          -o-border-radius: 0px 0px 0px 10px;
+          -webkit-border-radius: 0px 0px 0px 10px;
+          border-radius: 0px 0px 0px 10px;
+        }
+        > td:last-child{
+          -khtml-border-radius: 0px 0px 10px 0px;
+          -moz-border-radius: 0px 0px 10px 0px;
+          -ms-border-radius: 0px 0px 10px 0px;
+          -o-border-radius: 0px 0px 10px 0px;
+          -webkit-border-radius: 0px 0px 10px 0px;
+          border-radius: 0px 0px 10px 0px;
+        }
+      }
+      > tr{
+        > td{
+          color:#D84167;
+          text-align:center;
+          line-height: 1em;
+          vertical-align: middle;
+          border-top: 1px solid #DDD;
+          > a {
+            color:#D84167;
+          }
+          > img {
+            height:38px;
+            width:auto;
+            padding-bottom: 5px;
+          }
+        }
+        > td:first-child{
+          border-left: 1px solid #B1B1B1;
+          max-width: 80px;
+        }
+        > td:nth-child(2){
+          max-width:90px;
+          line-height: 110%;
+        }
+        > td:nth-child(3){
+          background-color:#7FB0E3;
+          color:white;
+          border-top: 1px solid white;
+        }
+        > td:last-child{
+          border-right: 1px solid #B1B1B1;
+          > a > img {
+            height:30px;
+            width: auto;
+          }
+        }
+      } // tr
+  } // tbody
+} // table
+
+.small-white-text{
+  font-size:11px;
+  color: #C4D8F0;
+}
+
+.small-white-bold-text{
+  font-size:11px;
+  font-weight:bold;
+}
+
+.large-white-bold-text{
+  font-size:22px;
+  font-weight:bold;
+  line-height: 1.5em;
+}
+
+.grey-bk{
+  background-color:#E6E6E6;
+}
+
+// YOTPO
+
+div.yotpo-default-button{
+  -moz-border-radius:10px !important;
+  -webkit-border-radius:10px !important;
+  -o-border-radius:10px !important;
+  -ms-border-radius:10px !important;
+  -khtml-border-radius: 10px !important;
+  border-radius:10px !important; 
+  background-color:#7FB0E3 !important;
+  height: 18px !important;
+  padding: 1px 10px !important;
+  > span.yotpo-icon-button-text{
+    padding: 0px 4px !important;
+    font-weight:bold !important;
+    font-size:9px !important;
+  }
+  > span.yotpo-icon{
+    display:none;
+  }
+}
+
+input.yotpo-default-button.write-first-review-button{
+  -moz-border-radius:20px !important;
+  -webkit-border-radius:20px !important;
+  -o-border-radius:20px !important;
+  -ms-border-radius:20px !important;
+  -khtml-border-radius:20px !important;
+  border-radius:20px !important; 
+  background-color:#617C99 !important;
+  height: 27px !important;
+  padding: 7px 13px !important;
+  font-weight:bold !important;
+  font-size:9px !important;
+  margin-bottom: 15px !important;
+}
+

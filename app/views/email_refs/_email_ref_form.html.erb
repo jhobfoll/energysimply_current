@@ -1,0 +1,11 @@
+<%= form_for(:ref_email, url: create_email_ref_path, method: 'put', html: {class: 'form-horizontal'}, remote: true) do |f| %>
+	<p>Friend's Email:
+	<%= f.text_field :email %> &nbsp; 
+	<span id='wrong_email'><strong>That Email is Already Registered.</strong></span>
+	<br><br>
+	<button class="btn btn-primary" id='email_ref' onClick="return false;">Refer A Friend</button>
+	<%= f.submit 'Refer This Friend', class: "create-referral-email-button", style: "display:none" %>
+	<br><br>
+	<span id='thanks_for_email'><strong>Thanks!</strong></span>
+	<br>
+<% end %>

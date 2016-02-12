@@ -1,0 +1,37 @@
+<%= form_for(@tdu) do |f| %>
+  <% if @tdu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tdu.errors.count, "error") %> prohibited this tdu from being saved:</h2>
+
+      <ul>
+      <% @tdu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, readonly: true %>
+  </div>
+  <div class="field">
+    <%= f.label :apt_avg %><br>
+    <%= f.text_field :apt_avg %>
+  </div>
+  <div class="field">
+    <%= f.label :apt_best %><br>
+    <%= f.text_field :apt_best %>
+  </div>
+  <div class="field">
+    <%= f.label :house_avg %><br>
+    <%= f.text_field :house_avg %>
+  </div>
+  <div class="field">
+    <%= f.label :house_best %><br>
+    <%= f.text_field :house_best %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

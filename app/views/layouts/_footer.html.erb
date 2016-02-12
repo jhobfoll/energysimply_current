@@ -1,0 +1,71 @@
+  <div class="col-xs-12 footer-links-div">
+	<div class="col-xs-2 footer-column-left">
+			<span class="footer-title">COMPANY</span>
+			<div class="home-footer-links" style="text-align:left;">
+				<%= link_to("About", about_energy_simply_path) %><br>
+				<%= link_to("Our Mission", our_mission_path) %><br>
+				<%= link_to("Blog", "http://blog.energysimp.ly") %><br>
+			</div>
+
+	</div>
+	<div class="col-xs-2 footer-column">
+			<span class="footer-title">HOME</span>
+			<div class="home-footer-links" style="text-align:left;">
+				<%= link_to("Compare Power Plans", "/compare-power-plans") %><br>
+				<%= link_to("Locations", locations_path) %><br>
+				</div>
+	</div>
+
+    <div class="col-sm-4 pull-right">
+
+		<div class = "social_links_div">
+			<%= link_to(image_tag(asset_path("Social_Facebook.png"), :alt => "facebook"),
+			  "https://www.facebook.com/EnergySimply",
+			  html_options = {
+				:class => "social-links"}
+	       	) %>
+                </div>
+
+                <div class = "social_links_div">
+	       	<%= link_to(image_tag(asset_path("Social_Twitter.png"), :alt => "twitter"),
+			  "https://twitter.com/EnergySimplyUSA",
+			  html_options = {
+				:class => "social-links"}
+	       	) %>
+                </div>
+
+                <div class = "social_links_div">
+			<%= link_to(image_tag(asset_path("Social_LinkedIn.png"), :alt => "linkedin"),
+			  "https://www.linkedin.com/company/energy-simply",
+			  html_options = {
+				:class => "social-links"}
+	       	) %>
+                </div>
+
+                <div class = "social_links_div">
+			<%= link_to(image_tag(asset_path("Social_Google.png"), :alt => "googleplus"),
+			  "https://google.com/+energysimply",
+			  html_options = {
+				:class => "social-links"}
+	       	) %>
+		</div>
+		 <div class="row terms-policy">
+		 	<span id="privacy-policy"><a href="//www.iubenda.com/privacy-policy/299562" class="iubenda-white no-brand iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>&nbsp;</span>
+		 	<span class="terms_of_use">
+		 		<%= link_to("Terms Of Use", terms_of_use_path) %>
+			</span>
+		</div>
+	</div>
+  </div>
+
+  <div>
+	<div class="col-xs-12 copyright-div">
+            <div style="text-align:left; padding-top:15px;">
+                    <span class="wsite-social wsite-social-default"></span>
+            </div>
+            <div class="paragraph copyright-text" style="text-align:left;">
+              Copyright&nbsp;&copy; 2015 &nbsp;|&nbsp;(844) 586-9850 &nbsp;| &nbsp;admin@EnergySimp.ly
+            </div>
+            <br><br>
+	</div>
+  </div>

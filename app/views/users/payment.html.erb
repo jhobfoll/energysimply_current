@@ -1,0 +1,120 @@
+<%= render "/shared/sign_up_progress_header" %>
+
+<div id="paymentWrapper" class='clearfix'>
+
+    <div id="paymentHeader">
+      <span class="bold">
+        Put us to work and start&nbsp;saving!
+        <br>
+        <span id="creditCardAccept">
+          <%= image_tag("credit-card-accept.jpeg", alt: "Visa, MC, Amex, Discover", class: 'img-responsive') %>
+        </span>
+      </span>
+
+
+    </div>
+
+    <div class="stripe-wrap">
+      <div class="stripe-form">
+
+        <%= form_tag stripe_create_path do %>
+            <div class="form-group">
+              <span class="sign-up-label hidden-xs">Name On Card</span>
+              <%= text_field_tag "customer_card_name", @name, placeholder: "Name on Card",
+                class: "form-control payment-input" %>
+            </div>
+
+  					<div class="form-group">
+  						<span class="sign-up-label hidden-xs">Card Number</span>
+  						<%= text_field_tag "card[card_number]", "", placeholder: "XXXX XXXX XXXX XXXX",
+                class: "form-control payment-input" %>
+  					</div>
+
+
+  					<div class="form-group">
+              <span id='exp-date-label-xs' class="sign-up-label visible-xs">Expiration Date<br></span>
+  						<span class="sign-up-label hidden-xs">Expiration Date</span>
+              <span id='exp_date'>
+                <%= select_month(nil, {use_two_digit_numbers: true}, {
+                  name: "card[exp_month]",
+                  class: "form-control payment-input", id: "paymentMonthSelect" }) %>
+                &nbsp;/&nbsp;
+                <%= select_year(nil, {start_year: 2015}, {
+                  name: "card[exp_year]",
+                  class: "form-control payment-input", id: "paymentYearSelect"  }) %>
+              </span>
+  					</div>
+
+  					<div class="form-group">
+  						<span class="sign-up-label hidden-xs">Security Code</span>
+  						<%= text_field_tag "card[cvc]", "", placeholder: "CVC",
+                class: "form-control payment-input input-half-width" %>
+              <span class='question'>?<div class='tooltip'>
+                This code is found on the back of your card.
+                <%#= image_tag(asset_path("Some.png"), :alt => "payment_help_cvc", :class => "img-responsive") %>
+              </div></span>
+              <span class="security-ssl">
+                <span id="ssl-logo">
+                  <%= image_tag("rapidssl.jpg", alt: "Secured by RapidSSL 256 bit Security", class: 'img-responsive') %>
+                </span>
+            </div>
+
+            <div class="form-group">
+              <span class="sign-up-label hidden-xs" id="phoneLabel">Phone Number</span>
+              <%= text_field_tag "phone", @phone, placeholder: "Phone",
+                      class: "form-control payment-input" %>
+            </div>
+
+            <!-- <div class="form-group">
+              <span class="sign-up-label hidden-xs billingZipLabel">Billing Zip&nbsp;Code</span>
+              <%#= text_field_tag "billing_zip", "", :placeholder => "Billing Zip",
+                class: "form-control payment-input" %>
+            </div> -->
+
+            <%= hidden_field_tag "card[email]", "", value: current_user.email %>
+
+						<% if current_user.plan_grade == 'basic'%>
+              <%= hidden_field_tag "card[plan_id]", "basic_plan" %>
+            <% else %>
+                <%= hidden_field_tag "card[plan_id]", "gold_plan2" %>
+            <% end %>
+
+  					<div id='paymentSubmitWrapper'>
+  						<%= submit_tag "Activate Subscription", class: "btn btn-large btn-primary submit-button", id: "zip-submit", style: "width: 229px" %>
+              <span id='submitCancelAnytime'>Your credit card will not be charged until you approve your first plan. <br><br>Cancel or get a refund <span class='bold'>anytime</span></span>
+              <br><span id='submitActivateAuthorize'>By clicking "Activate Subscription" you authorize
+                auto-renewal of subscription each month, unless&nbsp;cancelled.</span>
+  					</div>
+				<% end %>
+
+      </div> <!-- close stripe-form -->
+    </div> <!-- close stripe-wrap -->
+
+    <div id="whyLoveES_trial">
+      <%= render "/users/why_love_es_trial" %>
+    </div>
+    <br><br><br>
+</div>
+
+<!-- Google Code for signed-up Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 969198725;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "6cUDCNOswwsQhZmTzgM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/969198725/?label=6cUDCNOswwsQhZmTzgM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<script>
+//mixpanel.track("Viewed payment page");
+</script>

@@ -1,0 +1,45 @@
+<h3>Your Area Does Not Have Consumer Choice, but we will let you know if it ever becomes available.</h3>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <div class="form-group">
+
+		<% if @email.blank? %>
+			<span class="sign-up-label hidden-xs">Email</span><br>
+			<%= f.email_field :email,
+				placeholder: "Email",
+				class: "form-control sign-up-input" %><br />
+		<% else %>
+			<%= f.hidden_field :email, :value=>@email %>
+		<% end %>
+
+		<% if @cached_visitor.zip_id.blank? %>
+			<span class="sign-up-label hidden-xs">Zip Code</span><br>
+			<%= text_field_tag :zip, (params[:zip]),
+				placeholder: "Zip Code",
+				class: "form-control  sign-up-input sign-up-zip-field" %>
+			<br><br>
+		<% else %>
+			<span class="sign-up-label hidden-xs">Zip Code</span><br>
+			<%= text_field_tag :zip, @cached_visitor.zip.zip, readonly: true,
+				class: "form-control  sign-up-input sign-up-zip-field" %>
+			<br><br>
+		<% end %>
+
+
+    <!-- These are only passed in case of a form-submission error, to repopulate it -->
+    <%= hidden_field_tag :elec_choice_value, (params[:elec_choice_value]) %>
+
+    <!-- Tell Create What Subform Was Used  -->
+    <%= hidden_field_tag :form_type, "no_choice" %>
+
+    <!-- Pass Referral Info To Controller -->
+    <%= hidden_field_tag :referral_key, (params[:referral_key]) %>
+
+  </div>
+
+  <div class="form-group">
+  	<%= f.submit "Be  The  First  To  Know", class: "btn btn-primary" %>
+  </div>
+
+<% end %>

@@ -1,0 +1,67 @@
+<div class='standard-es-head row'>
+    <h3 class='standard-heading'>Thank You For Signing Up At The Gold Level</h3>
+</div>
+<!--<h4>Your transaction has been completed, and a receipt for your purchase has been emailed to you.<br>You may log into your account at www.paypal.com/us to view details of this transaction. </h4><br>-->
+<h4 class="next-steps">Next Steps:</h4>
+<div class="panel panel-default">
+ <div class="panel-body">
+
+<%= form_for(@user, :url => submit_bill_update_path, html: { multipart: true , class: 'new_user'}) do |f| %>
+	<div class="rounded-lt-blue-bkgnd">
+		<div class="col-md-12 row">
+			<div class="col-md-1">
+				<h3><span class="blue-circle-number">&nbsp;1&nbsp;</span></h3>
+			</div>
+			<div class="col-md-11">
+				<h3>Submit electricity bill info so we can find you the best plan</h3> 
+
+				<div class="form-group">
+							<%= f.radio_button :bill_send_method, 'upload', :checked => true %> 
+							<%= label :bill_send_method, 'Upload an electric copy of the bill' %>
+							
+							<div id='uploadBillNow'>
+								<%= fields_for @bill do |b| %>
+									<%= b.file_field :bill_image %>
+								<% end %>
+							</div>
+							<br>
+							<%= f.radio_button :bill_send_method, 'picture' %> 
+							<%= label :bill_send_method, 'Email a copy (Scan or picture) of your bill to admin@EnergySimp.ly' %>
+							<br>
+						<%= f.radio_button :bill_send_method, 'manual_enter' %> 
+						<%= label :bill_send_method, 'Manually enter data from bill' %>		
+						<div class="fill-bill" id="FillBillBelow">
+							<div class="col-md-12 row fill-bill" id="fillBillHere">
+								<%= fields_for @bill do |b| %>
+									<%= render "bill_fields", :f => b %>
+								<% end %>
+						    </div>
+						</div>	
+				</div>
+			
+				<div class="actions">
+					<%= f.submit "Submit Bill Info", 
+						class: "btn btn-large btn-primary", id:"sign-up-submit-button" %>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-md-12 row">			
+			<div class="col-md-1">
+				<h3><span class="blue-circle-number">&nbsp;2&nbsp;</span></h3>
+			</div>
+			<div class="col-md-11">
+				<h3>Within 24 hours we will call you to review the current best plan and switch your plan for you (if that is the best current option).</h3> 
+			</div>
+		</div>
+	
+	</div>	
+
+	<div class="col-md-12 row">
+		<div class="col-md-12">
+			<h4>If you have any questions or comments, please call us at 832-819-3250 or email us at admin@EnergySimp.ly</h4> 
+		</div>
+		
+<% end %>	
+				

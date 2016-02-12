@@ -1,0 +1,88 @@
+
+<% if (params[:plan_grade] == 'basic') %>
+
+    <div class='plan-sub-header'>
+      Save On Your Own With Our Analysis
+    </div>
+
+    <div class='plan-div' id='basic-plan-div' class='col-md-6 col-lg-4'>
+
+        <div class='plan-header' class='pull-right'>
+          <div class='row plan-price-wrap'>
+
+              <div class='pull-left'>
+                <span class='plan-title'>Basic Plan</span><br>
+                <span class='plan-cost-basic'>$3/month</span>
+              </div>
+
+              <div class='pull-right'>
+                <span class='plan-trial'><span class='plan-trial-free-basic'>FREE</span> 1 month trial</span>
+              </div>
+
+          </div>
+        </div>
+
+        <div class='plan-body'>
+            <ul class='plan-detail'>
+                <li><span class='plan-basic-detail-heading'>TIMELY REPORTS OF TOP PLANS</span><br>
+                        Independent experts actively monitor ALL electricity offers in your area
+                  </li>
+                <li><span class='plan-basic-detail-heading'>PLAN EXPIRATION NOTIFICATION</span><br>
+                        Notification of plan expiration with link to best currently available plan
+                </li>
+                <li><span class='plan-basic-detail-heading'>CONSTANT PLAN MONITORING</span><br>
+                        Notifications to switch if you can save during a plan’s term
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class='switch-plan-link'>
+      <%= link_to("Switch to Gold Plan", new_user_registration_path(:plan_grade => 'gold')) %>
+    </div>
+
+<% else %>
+
+      <div class='plan-sub-header'>
+          Relax And Let Us Do All The Work
+      </div>
+
+      <div class='plan-div' id='gold-plan-div' class='col-md-6 col-lg-4'>
+
+          <div class='plan-header'>
+            <div class='row plan-price-wrap'>
+
+                <div class='pull-left'>
+                    <span class='plan-title'>Gold Plan</span><br>
+                    <span class='plan-cost-gold'>$5/month</span>
+                </div>
+
+                <div class='pull-right'>
+                  <span class='plan-trial'><span class='plan-trial-free-gold'>FREE</span> 1 month trial</span>
+                </div>
+
+            </div>
+          </div>
+
+          <div class='plan-body'>
+            <ul class='plan-detail'>
+                  <li><span class='plan-gold-detail-heading'>ALWAYS HAVE THE BEST POWER PLAN</span><br>
+                        Independent expert signs you up for the best plan available<br/>&nbsp;
+                </li>
+                <li><span class='plan-gold-detail-heading'>NEVER FILL OUT A FORM AGAIN</span><br>
+                        We’ll manage switching logistics<br/>&nbsp;
+                  </li>
+                <li><span class='plan-gold-detail-heading'>NO LONGER WORRY ABOUT EXPIRATION</span><br>
+                        When your plan expires we will switch you automatically
+                </li>
+            </ul>
+          </div>
+
+      </div>
+
+    <!--<div class='switch-plan-link'>
+      <%= link_to("Switch to Basic Plan", new_user_registration_path(:plan_grade => 'basic')) %>
+    </div> -->
+
+<% end %>

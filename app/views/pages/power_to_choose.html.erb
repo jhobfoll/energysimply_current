@@ -1,0 +1,124 @@
+<% @title="Beyond Power To Choose | Energy Simply" %>
+<% @description="Forget Power To Choose. Energy Simply does all the work, so you always have the cheapest traditional or renewable Texas electric power plan. We work for you not the power companies." %>
+<div class="img-responsive">
+    <div class="container" style="width:100%; padding: 0; margin: 0;">
+				<div class="container go-to-power">
+
+
+					<div class="three-box">
+            <h1 class="ptc-title-first">You Can Go To Power To Choose And...</h1>
+						<div class="power-choose-box1">
+							<div class="choose-box-header">
+								<h3>Sort through <br> 50 companies</h3>
+							</div>
+							<!--choose-box-header-->
+							<div class="choose-box-body c-logo">
+
+                <% @co_logo_images.each do |image| %>
+                  <% co_image = image.gsub("app/assets/images/", "") %>
+                  <%= link_to(
+                    image_tag(asset_path(co_image),
+                    :alt => "Energy Simply serves the Texas and Illinois markets.",
+                    :class => "energy-co-logo-small"),
+                  "#") %>
+                <% end %>
+
+						  </div>
+
+							<!--choose-box-body-->
+						</div>
+						<!--power-choose-box-->
+						<div class="power-choose-box2">
+							<div class="choose-box-header">
+								<h3>Choose the right <br>contract length</h3>
+							</div>
+							<!--choose-box-header-->
+							<div class="choose-box-body">
+								<div class="thought-text-girl">
+									<span>Should I sign up for <br>
+									3, 6 or 12 months?</span>
+								<%= link_to(image_tag(asset_path("img/girls-thought.png"), :alt => "Confused woman trying to select an electric company."), "#") %>
+							</div>
+							</div>
+							<!--choose-box-body-->
+						</div>
+						<!--power-choose-box-->
+						<div class="power-choose-box2 last">
+							<div class="choose-box-header">
+								<h3 class="one-line">Decipher<br/>pricing</h3>
+							</div>
+							<!--choose-box-header-->
+							<div class="choose-box-body">
+								<div class="box-price clearfix">
+									<span class="price-xs-text">1,000 kWh</span>
+									<span class="price-lg-text">5.5¢</span>
+									<div class="unit-price1">
+										<span class="price-xs-text">500 kWh</span>
+										<span class="price-md-text">12.4¢</span>
+									</div>
+									<div class="unit-price2">
+										<span class="price-xs-text">2,000 kWh</span>
+										<span class="price-md-text">8.4¢</span>
+									</div>
+								</div>
+
+								<div class="thought-text">
+									<span>But my usage is <br>
+									different every month...</span>
+								<%= link_to(image_tag(asset_path("img/man-thought.png"), :alt => "Confused man trying to select an electric company."), "#") %>
+							</div>
+							</div>
+							<!--choose-box-body-->
+						</div>
+						<!--power-choose-box-->
+					</div>
+					<!--three-box-->
+
+					<div class="power-choose-box-right clearfix">
+            <h1 class="ptc-title-second">Or Never Have To Again</h1>
+						<div class="choose-box-body bg-primary">
+							<ul class="list-circle">
+								<li>Energy Simply is <b>NOT an Electric Company</b>.</li>
+								<li>We get you the best plans using proprietary modeling.</li>
+								<li>We sign you up and automatically switch you at expiration or whenever we can save you money.</li>
+								<li>Average customers <b>save $50+ EVERY month</b>.</li>
+								<li>Energy Simply only costs $5/month and comes with a money-back guarantee.</li>
+							</ul>
+
+							<div class="bottom-button">
+								<a href="#" class="btn btn-top" id='savingsButtonLinkPTC'>CALCULATE SAVINGS</a>
+								<a href="/users/sign_up?plan_grade=gold" class="btn btn-large btn-primary" id="home-zip-submit"> SIGN UP</a>
+								</div>
+						</div>
+						<!--choose-box-body-->
+					</div>
+					<!--power-choose-box-->
+
+
+  			</div>
+  			<!--power-choose-panel-->
+  			<div class="ptc-problems">
+  			<h2><u>Power To Choose's Problems</u></h2>
+
+  			<h3>Finding a plan with Power To Choose is annoying!</h3>
+
+  			<p>You have to remember your plan is expiring, know how much electricity you usually use, sort through 50 companies and 1500 plans. And you can never be sure you’re getting the best price!</p>
+
+  			<h3>Companies lure you in through Power To Choose!</h3>
+
+  			<p>The electric companies use teaser rates to get you in the door and then bump you into bad plans. And if you forget to renew, you get hit with extremely high variable rates!</p>
+
+  			<h3>With Power To Choose you won’t know what you’ll actually pay!</h3>
+
+  			<p>Your power use varies throughout the year - use is higher in the summer when you run your air conditioning. Power To Choose shows your potential costs based on 3 generic monthly usage points (500, 1000, and 2000 kWh). If those aren’t the amounts you use, your costs will be different – and probably higher!</p>
+
+  			<h3>Companies game Power To Choose’s ranking system!</h3>
+
+  			<p>If you go choose the top ranking plan we can almost guarantee <a href="http://blog.energysimp.ly/2014/08/14/if-you-just-use-power-to-choose-chances-are-youre-paying-too-much/">it won't be the cheapest plan</a> for you.<br/><br/>
+
+  			Companies know that their price at exactly 1000kWh is how Power To Choose ranks them, so they price their plans artificially cheap at that exact usage to rank higher. You’re usage is not going to be exactly 1000kWh so you’re going to pay more!</p>
+  			</div>
+		  </div>
+		<!--container-->
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<%= form_for(@user, html: {class: 'form-horizontal'}) do |f| %>
+	<div class="form-group">
+
+	<% if current_user && current_user.admin %>
+
+		<%= f.label :email %>
+		<%= f.email_field :email, class: "form-control" %><br />
+
+    <%= f.label :service_type %>
+		<%= f.select :service_type, options_for_select([["Residential"], ["Commercial"]], :selected=>"Residential") %>
+
+    <%= f.label :plan_type %>
+		<%= f.select :plan_type, options_for_select([["Cheapest Power"], ["Most Affordable 100% Renewable"]]), class: "form-control" %><br><br>
+
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name, class: "form-control" %><br />
+
+		<%= f.label :middle_initial %>
+		<%= f.text_field :middle_initial, class: "form-control" %><br />
+
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name, class: "form-control" %><br />
+
+		<%= f.label :maiden_name %>
+		<%= f.text_field :maiden_name, class: "form-control" %><br />
+
+		<%= f.label :phone %>
+		<%= f.phone_field :phone, class: "form-control" %><br />
+
+		<%= f.label :billing_address_1 %>
+		<%= f.text_field :billing_address_1, class: "form-control" %><br />
+
+		<%= f.label :billing_address_2 %>
+		<%= f.text_field :billing_address_2, class: "form-control" %><br />
+
+		<strong><%= (params[:city]) %>, <%= (params[:state]) %>  <%= (params[:zip_value]) %></strong><br /><br />
+
+		<%= f.label :dwelling_type %>
+		<%= f.select :dwelling_type, options_for_select([["House"], ["Apartment"]]), class: "form-control" %><br /><br />
+
+		<%= f.label :sq_ft_range %>
+		<%= f.select :sq_ft_range, options_for_select([["0-500"], ["500-1000"], ["1000-1500"], ["1500-2000"], ["2000-2500"], ["2500-3000"]]), class: "form-control" %><br />
+
+		<br>Are you Moving to a New Address?<br>
+		<%= f.label :svc_new_old %>
+		<%= f.select :svc_new_old, options_for_select([["Current Location"], ["New Location"]]), class: "form-control" %><br />
+
+		<br>If New Location:<br>
+		<%= f.label :move_in_date %>
+		<%= f.text_field :move_in_date, 'data-behaviour' => 'datepicker', class: "form-control" %><br />
+
+
+		<%= f.label :home_new_old %>
+		<%= f.select :home_new_old, options_for_select([["New Construction"], ["Existing Construction"]]), class: "form-control" %><br />
+
+		<br>--If Newly Constructed: <br>
+		<%= f.label :meter_type %>
+		<%= f.select :meter_type, options_for_select([["Permanent Meter"], ["Temporary Meter"], ["Not Sure"]]), class: "form-control" %><br />
+
+		<br>--If NOT Newly Constucted <br>
+		<%= f.label :rewired %>
+		<%= f.select :rewired, options_for_select([["New Wiring"], ["Existing Wiring"]]), class: "form-control" %><br />
+
+		<%= f.label :mobile %>
+		<%= f.select :mobile, options_for_select([["Mobile Home"], ["Conventional Home"]]), class: "form-control" %><br />
+
+		<br> <br>
+		<%= select_tag :bill_send_method, options_for_select([["Upload My Bill Now"], ["Email My Bill"], ["Input Bill Info Here"]], :selected=>"Residential") %><br>
+
+		<% if @user.zip.present? %>
+	 		<strong><%= @user.zip.city %>, <%= @user.zip.state %>  <%= @user.zip.zip %></strong><br /><br />
+	 	<% end %>
+
+	 	<%= f.label :ssnum %>
+		<%= f.text_field :ssnum, class: "form-control" %><br />
+
+		<%= f.label :dob %>
+		<%= f.text_field :dob, class: "form-control" %><br />
+
+    <%= f.label :zip_id %>
+		<%= f.text_field :zip_id, class: "form-control" %><br />
+
+	<% end %> <!-- admin only above -->
+
+		<%= f.label :password %>
+		<%= f.password_field :password, class: "form-control" %><br />
+
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, class: "form-control" %><br />
+
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+	</div>
+
+<% end %>

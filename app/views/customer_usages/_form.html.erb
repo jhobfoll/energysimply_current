@@ -1,0 +1,65 @@
+<%= form_for(@customer_usage) do |f| %>
+  <% if @customer_usage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer_usage.errors.count, "error") %> prohibited this customer_usage from being saved:</h2>
+
+      <ul>
+      <% @customer_usage.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mo_01 %><br>
+    <%= f.number_field :mo_01 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_02 %><br>
+    <%= f.number_field :mo_02 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_03 %><br>
+    <%= f.number_field :mo_03 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_04 %><br>
+    <%= f.number_field :mo_04 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_05 %><br>
+    <%= f.number_field :mo_05 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_06 %><br>
+    <%= f.number_field :mo_06 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_07 %><br>
+    <%= f.number_field :mo_07 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_08 %><br>
+    <%= f.number_field :mo_08 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_09 %><br>
+    <%= f.number_field :mo_09 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_10 %><br>
+    <%= f.number_field :mo_10 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_11 %><br>
+    <%= f.number_field :mo_11 %>
+  </div>
+  <div class="field">
+    <%= f.label :mo_12 %><br>
+    <%= f.number_field :mo_12 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,80 @@
+
+
+.help-grow-div{
+  font-size: 16px;
+}
+
+.sortable:hover{
+  cursor: n-resize
+}
+
+
+table.table-pp-compare{
+  max-width: 850px;
+  border-collapse: separate;
+  border: 0px none;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  -o-border-radius:10px;
+  -ms-border-radius:10px;
+  -khtml-border-radius: 10px;
+  border-radius:10px;
+  > tbody > tr > td{
+    font-size:14px;
+    border-top: 0px none;
+    border-bottom: 1px solid #DDD;
+  }
+  > tbody > tr:nth-child(2) > td{
+    padding-top:14px;
+  }
+}
+
+.tr-pp-compare{
+  //background-color: #617C99;
+  color: #FFF;
+  font-size: 14px;
+  > th > a {
+    color: #FFF;
+  }
+  > th.header{
+    border-right: 1px solid white;
+    border-bottom: 0;
+    background-color: #617C99;
+    vertical-align: bottom;
+    padding-bottom: 7px;
+  }
+  > th:first-child{
+    -webkit-border-radius: 10px 0px 0px 10px;
+    -moz-border-radius: 10px 0px 0px 10px;
+    -o-border-radius: 10px 0px 0px 10px;
+    -ms-border-radius: 10px 0px 0px 10px;
+    -khtml-border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 0px 0px 10px;
+  }
+  > th:nth-child(2){
+    max-width: 132px;
+  }
+  > th:nth-child(3){
+    max-width: 158px;
+  }
+  > th:nth-child(4), th:nth-child(5){
+    max-width:105px;
+  }
+
+  > th:last-child{
+    -webkit-border-radius: 0px 10px 10px 0px;
+    -o-border-radius: 0px 10px 10px 0px;
+    -moz-border-radius: 0px 10px 10px 0px;
+    -khtml-border-radius: 0px 10px 10px 0px;
+    -ms-border-radius: 0px 10px 10px 0px;
+    border-radius: 0px 10px 10px 0px;
+    min-width: 110px;
+  }
+}
+
+.compare-plans-explanation{
+  > p{
+    font-size:14px;
+    max-width: 800px;
+  }
+}

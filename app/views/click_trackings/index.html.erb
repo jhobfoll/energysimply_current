@@ -1,0 +1,52 @@
+<h1>Listing click_trackings</h1>
+
+<table class="table">
+  <thead>
+    <tr class="colhead">
+      <th>Date</th>
+      <th>Zip</th>
+      <th>Url</th>
+      <th>User</th>
+      <th>IP</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @click_trackings.each do |click_tracking| %>
+      <tr>
+        <td><%= click_tracking.created_at %></td>
+        <td><%= click_tracking.zip %></td>
+        <td><%= click_tracking.url %></td>
+        <td><%= click_tracking.user_id %></td>
+        <td><%= click_tracking.ip_address %></td>
+        <td><%= link_to 'Show', click_tracking %></td>
+        <td><%= link_to 'Edit', edit_click_tracking_path(click_tracking) %></td>
+        <td><%= link_to 'Destroy', click_tracking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Click tracking', new_click_tracking_path %>
+
+<script type="text/javascript" charset="utf-8">
+      
+     $(document).ready(function () {
+        $.tablesorter.formatInt = function (s) {
+            var i = parseInt(s);
+            return (isNaN(i)) ? null : i;
+        };
+        $.tablesorter.formatFloat = function (s) {
+            var i = parseFloat(s);
+            return (isNaN(i)) ? null : i;
+        };
+        $("table").tablesorter({
+          sortList: [[0,1]] 
+        });
+      });
+    </script>

@@ -1,0 +1,168 @@
+<% if (
+    current_page?(root_path) || current_page?(cheapest_electric_path) ||
+    current_page?(texas_plans_path) || current_page?(tx_plans_path)  ||
+    current_page?(cheap_plans_path) || current_page?(power_to_choose_path) ||
+    current_page?(electric_companies_path) || current_page?(savings_calculator_path) ||
+    current_page?(savings_calculator_calculate_path) || (request.fullpath).include?('contact_us') ||
+    (request.fullpath).include?('sign_up') || (request.fullpath).include?('users/payment') ||
+    (request.fullpath).include?('users/submit_bill')
+    )  %>
+  <div class="navbar navbar-default navbar-margin-0">
+<% else %>
+  <div class="navbar navbar-default">
+<% end %>
+
+  <%= link_to(image_tag(asset_path("energySimply_Logo_scaled1.png")),
+  		  root_path,
+  		  html_options = {
+  			:class => "navbar-brand navigate img-responsive",
+          	:rel => "home",
+          	:title => "Home"}
+         	) %>
+
+  	<div class="navbar-header">
+
+  		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+  			<span class="icon-bar"></span>
+  			<span class="icon-bar"></span>
+  			<span class="icon-bar"></span>
+  		</button>
+
+  	</div>
+
+  	<div class="navbar-collapse collapse">
+
+        <div id="navRight_TopRow">
+          <div class="social_links_header_div">
+            <%= link_to(image_tag(asset_path("Social_Facebook.png"), :alt => "facebook"),
+              "https://www.facebook.com/EnergySimply",
+              html_options = {
+              :class => "header-social-links"}
+                 ) %>
+          </div>
+
+          <div class="social_links_header_div">
+                 <%= link_to(image_tag(asset_path("Social_Twitter.png"), :alt => "twitter"),
+              "https://twitter.com/EnergySimplyUSA",
+              html_options = {
+              :class => "header-social-links"}
+                 ) %>
+          </div>
+
+          <div class="social_links_header_div">
+            <%= link_to(image_tag(asset_path("Social_LinkedIn.png"), :alt => "linkedin"),
+              "https://www.linkedin.com/company/energy-simply",
+              html_options = {
+              :class => "header-social-links"}
+                 ) %>
+          </div>
+
+          <div class="social_links_header_div">
+            <%= link_to(image_tag(asset_path("Social_Google.png"), :alt => "googleplus"),
+              "https://google.com/+energysimply",
+              html_options = {
+              :class => "header-social-links"}
+                 ) %>
+          </div>
+
+            <div class="log-in-sign-up">
+              <% unless current_user.present? %>
+                  <%= link_to "Log In", new_user_session_path, html_options = {:class => "nav-link", :id => "signin"} %>
+                  |
+                  <%= link_to "Sign Up", new_user_registration_path, html_options = {:class => "nav-link", :id => "signup"} %>
+                <% else %>
+                  <%= link_to "LOG OUT", destroy_user_session_path, method: :delete %>
+                <% end %>
+            </div>
+
+        </div>
+
+  		<ul class="nav navbar-nav pull-right">
+
+  			<li><%= link_to 'CALCULATE SAVINGS', savings_calculator_path, html_options = {:class => "nav-link", :id => "savings"} %></li>
+        <li><%= link_to 'HOW IT WORKS', how_it_works_path, html_options = {:class => "nav-link", :id => "howWorks"} %></li>
+        <li><%= link_to 'TESTIMONIALS', benefits_and_testimonials_path, html_options = {:class => "nav-link", :id => "benefits"} %></li>
+  			<li><%= link_to 'OUR TEAM', energy_simply_team_path, html_options = {:class => "nav-link", :id => "aboutnav"} %></li>
+        <li><%= link_to 'BLOG', "http://blog.energysimp.ly", html_options = {:class => "nav-link", :id => "aboutnav"} %></li>
+
+        <%# unless ( @zip.present? || current_user.present? ) %>
+        <% if 1 == 2 %>
+
+          <li class="dropdown navbar-links">
+              <a href="#" class="dropdown-toggle" id="cpp_menu" data-toggle="dropdown">
+              COMPARE
+
+              <% if ( current_page?(electric_companies_path)) %>
+              ELECTRIC COMPANIES
+              <% else %>
+              POWER PLANS
+              <% end %>
+
+              <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><%= link_to 'Texas', compare_power_plans_tx_path,
+                          html_options = {:class => "nav-link",
+                                          :id => "compareppnav",
+                                          "data-no-turbolink" => true} %>
+                  </li>
+                  <li><%= link_to 'Illinois', compare_power_plans_il_path,
+                          html_options = {:class => "nav-link",
+                                          :id => "compareppnav",
+                                          "data-no-turbolink" => true} %>
+                  </li>
+              </ul>
+            </li>
+
+        <% else %>
+
+          <!-- <li><%= link_to 'COMPARE POWER PLANS', compare_power_plans_path,
+                  html_options = {:class => "nav-link",
+                                  :id => "compareppnav",
+                                  "data-no-turbolink" => true} %>
+          </li> -->
+
+  			<% end %>
+
+          <% if current_user.present? %>
+
+            <% if current_user.admin %>
+                  <li class="dropdown navbar-links">
+                    <a href="#" class="dropdown-toggle" id="AdminFunctionsButton" data-toggle="dropdown">ADMIN<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><%= link_to 'Users', users_path, html_options = {:class => "nav-link"} %></li>
+                          <li><%= link_to 'ClickTracking', click_trackings_path, html_options = {:class => "nav-link"} %></li>
+                          <li><%= link_to 'Bills', bills_path, html_options = {:class => "nav-link"} %></li>
+                          <li><%= link_to 'TDUs', tdus_path, html_options = {:class => "nav-link"} %></li>
+                          <li><%= link_to 'Savings Calculator Data', savings_calculator_data_path, html_options = {:class => "nav-link"} %></li>
+                          <li><%= link_to 'Stripe Config', stripe_config_path, html_options = {:class => "nav-link"} %></li>
+                      </ul>
+                  </li>
+            <% end %> <!-- if admin -->
+
+            <li class="dropdown navbar-links">
+                <%= link_to(image_tag(asset_path("SettingsGear_2.png")), '#',
+                    html_options = {
+                      :class => "navbar-brand navigate dropdown-toggle",
+                      :id => "login_menu",
+                      :rel => "settings",
+                      :title => "Settings",
+                      :data => {
+                         :toggle => "dropdown"
+                      }
+                    }
+                ) %>
+                 <ul class="dropdown-menu">
+                   <li><%= link_to "Change My Password", edit_user_path(current_user.id) %></li>
+                 </ul>
+            </li>
+
+          <% end %> <!-- if current_user -->
+
+          <li id='contactUsPhone' class="hidden-xs"><%= link_to " | Contact Us 1-844-586-9850", contact_us_path %></li>
+          <li id='contactUsPhone' class="visible-xs"><%= link_to "  Contact Us 1-844-586-9850 ", contact_us_path %></li>
+
+      </ul> <!-- nav navbar-nav pull-right -->
+
+  	</div><!--/nav-collapse -->
+  </div><!--/navbar navbar-default -->
+</div> <!-- /static navbar -->

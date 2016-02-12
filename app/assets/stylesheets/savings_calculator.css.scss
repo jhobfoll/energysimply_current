@@ -1,0 +1,473 @@
+#savingsCalculatorWrapper{
+  width: 100%;
+  text-align: center;
+  margin: 25px auto;
+  padding: 0 25px;
+  color: #5D5B5C;
+}
+
+#savingsCalculatorHeadingWrapper{
+  margin-bottom: 30px;
+}
+
+#savingsCalculatorHeadingIconDiv{
+  margin: 0 auto;
+}
+
+#savingsCalculatorSubHeadingSimpler{
+  color: #F3C618;
+  border-bottom: 2px solid #CECFD1;
+  display: inline;
+  padding-bottom: 10px;
+  @media (max-width: 768px) {
+    border: none;
+  }
+}
+
+#savingsCalculatorSubHeadingHR{
+  background-color: #CECFD1;
+  height: 2px;
+  width:90%;
+  margin: 15px auto 25px;
+}
+
+#savingsCalculatorIntroWrapper{
+  > p{
+    font-size: 17px;
+  }
+}
+
+.savingsCalculatorIntroBold{
+  font-weight: bold;
+}
+
+#savingsCalculatorForm{
+  margin-top:20px;
+  text-align: center;
+  > div.form-group{
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: 16%;
+    min-width: 150px;
+    margin: 10px 0;
+    padding-left: 5px;
+  }
+}
+
+// #formFirstLabelBugfix{
+//   margin-left: -40%;
+// }
+
+#calc_zip, #calc_amtDue, #calc_kwh{
+  width: 100%;
+  // min-width: 70px;
+  border-color: #CECFD1;
+  height: 30px;
+}
+
+div#calc_month-div{
+  margin-right: 15px !important;
+}
+
+#calculatorMonthSelect{
+  float: left;
+  border-radius: 5px;
+  border-color: #CECFD1;
+  min-width: 120px;
+  width: 100%;
+  height: 30px;
+}
+
+
+.calculator_input_label{
+  display: inline-block;
+  padding-right: 18px;
+  padding-bottom: 5px;
+  text-align: left;
+  // min-width: 145px;
+}
+
+.calculator_input_label_preference{
+  margin-top: 8px;
+  display: inline-block;
+  padding-right: 18px;
+  padding-bottom: 4px;
+  text-align: left;
+  text-decoration: underline;
+  // min-width: 145px;
+}
+
+.clear-both{
+  clear: both;
+}
+
+div#radioPowerType{
+  text-align: left;
+  min-width: 245px !important;
+  line-height: 1.3em;
+  margin-left: 5px !important;
+}
+
+#noSavingsResponse {
+  display: none;
+}
+
+#calculateSavingsFormSubmitDiv {
+  margin-top: 20px;
+  > input {
+    height: 30px;
+    width: 200px;
+    border-radius: 25px;
+    border: none;
+    background-color: #7EB0E3;
+    background-image: none;
+  }
+}
+
+// --- RETURN SECTION BELOW ---
+
+#calculatorOutputTableBackground{
+  position: absolute;
+  width: 50%;
+  tbody > tr > th {
+    background-color: #72757A;
+    color: #FFF;
+    font-size: 16px;
+  }
+  tbody > tr:last-child {
+    border-bottom: solid 1px #DFDFDF;
+  }
+}
+
+.calculator-output-table-row{
+  height: 50px;
+  border-right: solid 1px #DFDFDF;
+  border-left: solid 1px #DFDFDF;
+  > td#totalSavingsLabel{
+    font-size:18px;
+    font-weight: bold;
+  }
+}
+
+#savingsTotal{
+  font-size:18px;
+  font-weight: bold;
+}
+
+#savingsBlue{
+  color: #7EB0E3;
+  text-decoration: underline;
+}
+
+.savingsTotalTop{
+  margin-bottom: 30px;
+}
+
+.monthly-savings-element{
+  height: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.calc-col-header{
+  display: inline-block;
+  margin-left: 5%;
+  vertical-align: middle;
+  margin-top: 6px;
+}
+
+div#current_plan_output, div#best_plan_output, div#savings_output{
+  float: left;
+  @media screen and (max-width:768px) {
+    padding-left: 0;
+  }
+}
+
+div#current_plan_output{
+  margin-top: 50px;
+}
+
+div#savings_output{
+  margin-top: 40px;
+}
+
+#savingsTotal{
+  font-weight: bold;
+}
+
+/*
+.chart rect {
+  fill: steelblue;
+}
+*/
+
+.chart .legend {
+  fill: black;
+  font: 14px sans-serif;
+  text-anchor: start;
+  font-size: 12px;
+}
+
+#chart_legend_and_buttons_right_wrapper{
+  height: 40px;
+  text-align: left;
+  margin-top: 25px;
+  margin-left: 5%;
+  width: 25%;
+}
+
+
+#legendGroup1, #legendGroup2, .legend_1a, .legend_1b, .legend_2a, .legend_2b{
+  display: inline-block;
+}
+
+#legendGroup1, #legendGroup2{
+  vertical-align: middle;
+  line-height: 0px;
+  margin-top: -22px;
+}
+
+.legend_1a, .legend_2a{
+  width: 15px;
+  height: 15px;
+  margin-top: -7px;
+}
+
+.legend_1b, .legend_2b{
+  font-size: 16px;
+  padding-left: 5px;
+  vertical-align: top;
+}
+
+.legend_1b{
+  margin-right: 10px;
+}
+
+
+.chart_legend{
+    margin-top: 15px;
+    overflow-y: hidden;
+    height: 100px;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.chart .label {
+  fill: black;
+  font: 14px sans-serif;
+  text-anchor: end;
+}
+
+.label{
+  margin-left: -20px;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+//-- END SAVINGS CALCULATOR CHART CSS --
+
+#calc-savings-buttons-wrapper.hidden-xs{
+  margin: 50px auto 0;
+  text-align: center;
+  clear: both;
+  color: white;
+  > form.button_to{
+    margin-bottom: 20px;
+  }
+}
+
+div.calc-savings-button{
+  display: inline-block;
+  margin-bottom: 20px;
+  }
+
+div.calc-savings-button .btn{
+  border-color: transparent;
+  border-radius: 25px;
+  -webkit-border-radius: 7px;
+  padding: 15px 15px;
+  font-size: 19px;
+  color: #fff;
+  width: 175px;
+  height: 55px;
+  text-transform: uppercase;
+}
+
+.calculator-choice-btn {
+  border: 1px solid #B30808;
+  background-color: #e40a0a;
+  background-image: linear-gradient(to bottom, #e40a0a, #9f0202);
+  -webkit-border-radius: 25;
+  -moz-border-radius: 25;
+  border-radius: 25px;
+  font-family: Arial;
+  color: #FFF !important;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  text-decoration: none;
+  background-width: 80%;
+}
+
+#calculatorLearnMoreButton{
+  background: #7EB0E3
+}
+
+.calculator-choice-btn:hover {
+  text-decoration: none;
+  color: #DDD !important;
+  border: solid #FFF 1px;
+}
+
+@media screen and (max-width:1085px) {
+  .calc-col-header, #chart_legend_and_buttons_right_wrapper{
+    height: 55px;
+  }
+  div#current_plan_output{
+    margin-top: 80px;
+  }
+  div#savings_output{
+    margin-top: 70px;
+  }
+}
+
+@media screen and (max-width:992px) {
+  #chart_legend_and_buttons_right_wrapper{
+    margin-left: 2%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  #calculatorOutput{
+    margin-left: -5px;
+  }
+  #calc-savings-buttons-wrapper_top.visible-xs{
+    margin-bottom: 15px;
+  }
+  div#current_plan_output{
+    width: 77%;
+    text-align: left;
+    padding-left: 5%;
+  }
+  div#savings_output{
+    float: right;
+    margin-right: 25px;
+    width: 15%
+  }
+  #calculatorOutputTableBackground{
+    width: 77%;
+  }
+  #calcCol1Header{
+    padding-left: 10px;
+  }
+  #plan_type_Cheapest_Power{
+    margin-top: 0;
+  }
+  .savingsTotalTop{
+    min-height: 53px;
+    line-height: 1.3;
+  }
+  .chart_current_usage{
+    // margin-left: -120px;
+  }
+  #chart_legend_and_buttons_right_wrapper{
+    padding-top: 50px;
+    float: left;
+    min-width: 165px;
+  }
+  #calc-savings-buttons-wrapper.visible-xs{
+    float: right;
+    text-align: center;
+    margin-top: 70px;
+  }
+  #legend_top_wrapper{
+    margin: 30px auto 5px;
+  }
+}
+
+@media screen and (max-width:420px) {
+  .chart_current_usage{
+    margin-left: -10%;
+  }
+  .chart .label {
+    font-size: 10px;
+  }
+  div#savings_output{
+    margin-right: 15px;
+  }
+  div#savingsTotal{
+    margin: -7px 10px 0 -15px;
+  }
+}
+
+@media screen and (max-width:358px) {
+  #calcCol1Header{
+    margin-top: -5px;
+  }
+}
+
+ // --- TOOLTIP CSS ---
+
+.tooltip{
+  opacity: 1;
+  display: none;
+}
+
+span.question {
+  cursor: pointer;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #7EB0E3;
+  line-height: 16px;
+  color: White;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+span.question:hover { background-color: #3D6199; }
+div.tooltip {
+  background-color: #3D6199;
+  color: White;
+  position: absolute;
+  left: -50px;
+  top: -100px;
+  z-index: 1000000;
+  width: 250px;
+  border-radius: 5px;
+}
+// div.tooltip:before {
+//   border-color: transparent #3D6199 transparent transparent;
+//   border-right: 6px solid #3D6199;
+//   border-style: solid;
+//   border-width: 6px 6px 6px 0px;
+//   content: "";
+//   display: block;
+//   height: 0;
+//   width: 0;
+//   line-height: 0;
+//   position: absolute;
+//   top: 40%;
+//   left: -6px;
+// }
+div.tooltip span {
+  margin: 10px;
+  color: White;
+}

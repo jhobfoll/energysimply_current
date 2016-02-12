@@ -1,0 +1,22 @@
+<% flash[:notice] = nil %>
+
+<% if @missing_calc_inputs == true %>
+	$('div#calculatorOutput').html("<h3>All Form Fields Are Required.  Please Complete and Re-Submit.</h3>")
+<% end %>
+
+<% if @bad_mo_cost == true %>
+	$('div#calculatorOutput').html("<h3>The monthly cost provided is out of range.  Please re-check that value and re-submit.</h3>")
+<% end %>
+
+<% if @bad_kwh == true %>
+	$('div#calculatorOutput').html("<h3>The KWH usage provided is out of range.  Please re-check that value and re-submit.</h3>")
+<% end %>
+
+<% if @IL_zip == true %>
+	$('div#calculatorOutput').html("<h3>A Calculator for Illinois is coming soon!</h3>")
+<% end %>
+
+<% if @calculator_data_savings == true %>
+		$('div#calculatorOutput').html("<%= j (render 'calculator_output') %>")
+		$('div#calculatorOutput').append("<%= j (render 'savings_calculator_main_js') %>")
+<% end %>

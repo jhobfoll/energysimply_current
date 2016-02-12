@@ -1,0 +1,28 @@
+Hello <%=@customer.first_name %>,
+
+
+Thank you for signing up for EnergySimp.ly at the Basic level.
+
+You can sign into Energy Simply with the following credentials:
+email: <%=@customer.email %>
+password: <%=@plain_pass%>
+
+Next Steps:
+
+ 1) Send us a copy of your latest electricity bill if you haven't already (Optional)
+ 		a) Take a picture of your bill with your phone and email to admin@energysimp.ly
+ 		b) Scan and email a copy of your bill to admin@energysimp.ly
+
+ 2) Within 24 hours you will receive your first report of the best plan currently available.
+
+ 3) Please spread the word about Energy Simply using this link: <%= "https://energysimp.ly/" + @customer.referral_key %>
+
+ 	Earn rewards when friends sign up. You will receive a Philips LED light bulb for your first referral, and you can earn many other energy-saving prizes for additional referrals, including a Nest Thermostat if you refer 25 people.
+
+If you have any questions or comments, please call us at 832-819-3250
+or email us at admin@EnergySimp.ly
+
+Thanks again,
+
+Jordan Hobfoll
+CEO EnergySimp.ly

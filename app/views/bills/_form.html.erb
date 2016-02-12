@@ -1,0 +1,65 @@
+<%= form_for @bill, html: { multipart: true } do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :svc_address_1 %><br>
+    <%= f.text_field :svc_address_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :svc_address_2 %><br>
+    <%= f.text_field :svc_address_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :current_provider %><br>
+    <%= f.text_field :current_provider %>
+  </div>
+  <div class="field">
+    <%= f.label :kwh_usage %><br>
+    <%= f.text_field :kwh_usage %>
+  </div>
+  <div class="field">
+    <%= f.label :energy_charge %><br>
+    <%= f.text_field :energy_charge %>
+  </div>
+  <div class="field">
+    <%= f.label :usage_charge %><br>
+    <%= f.text_field :usage_charge %>
+  </div>
+  <div class="field">
+    <%= f.label :esi_id %><br>
+    <%= f.text_field :esi_id %>
+  </div>
+  <div class="field">
+    <%= f.label :meter_number %><br>
+    <%= f.text_field :meter_number %>
+  </div>
+  <div class="field">
+    <%= f.label :account_number %><br>
+    <%= f.text_field :account_number %>
+  </div>
+  <div class="field">
+    <%= f.label :plan_end_date %><br>
+    <%= f.text_field :plan_end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :last_bill_amount %><br>
+    <%= f.text_field :last_bill_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :bill_image %><br>
+    <%= f.file_field :bill_image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

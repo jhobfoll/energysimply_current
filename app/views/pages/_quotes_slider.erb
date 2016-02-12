@@ -1,0 +1,75 @@
+<div class='quotes-wrapper'>
+  <%  javascript_include_tag "responsiveslides.min.js" %>
+  <h3 class='bold quote-h3'>What Customers Are Saying</h3>
+
+  <div class='narrow-hr quotes-hr center-block'><hr></div>
+
+  <div class="rslides_container">
+    <ul class="rslides">
+      <li>
+         <div class="col-md-12 row" id="slidersRow">
+          <div class="col-md-1"></div>
+          <div class="col-md-5 quote-section clearfix">
+            <div class='quote-mark open-quote-div'>
+              <%= image_tag("OpenQuotes.png", alt: "“", class: 'img-responsive slider-quotes') %>
+            </div>
+            <div class='quote-content'>
+              I love that my power bill is something I never have to think about again.
+              <br><span class='quote-signature'>-Kelly D.</span>
+          </div>
+          <div class='quote-mark close-quote-div'>
+            <%= image_tag("CloseQuotes.png", alt: "“", class: 'img-responsive slider-quotes') %>
+          </div>
+        </div>
+
+          <div class="col-md-1"></div>
+
+          <div class="col-md-5 quote-section clearfix">
+            <div class='quote-mark open-quote-div'>
+              <%= image_tag("OpenQuotes.png", alt: "“", class: 'img-responsive slider-quotes') %>
+            </div>
+            <div class='quote-content'>
+              I saved $150 even after paying to cancel the contract I was in.&nbsp;
+              <br><span class='quote-signature'>–Gerardo G.</span>
+            </div>
+            <div class='quote-mark close-quote-div'>
+              <%= image_tag("CloseQuotes.png", alt: "“", class: 'img-responsive slider-quotes') %>
+            </div>
+          </div>
+      </li>
+      <!-- <li>
+        <div class="col-md-12 row">
+          <div class="col-md-1"></div>
+          <div class="col-md-5"><span class="bold">“I would love for my power bill to be something I never have to think about again.”</span><br/> -Kelly<br/>
+          <span>&nbsp;</span></div>
+          <div class="col-md-1"></div>
+          <div class="col-md-5"><span class="bold">“I saved $150 even after paying to cancel the contract I was in.”</span><br/> –G.</div>
+      </li>
+      <li>
+        <div class="col-md-12 row">
+          <div class="col-md-1"></div>
+          <div class="col-md-5"><span class="bold">“I would love for my power bill to be something I never have to think about again.”</span><br/> -Kelly<br/>
+          <span>&nbsp;</span></div>
+          <div class="col-md-1"></div>
+          <div class="col-md-5"><span class="bold">“I saved $150 even after paying to cancel the contract I was in.”</span><br/> –G.</div>
+      </li> -->
+    </ul>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $(".rslides").responsiveSlides({
+      auto: true,             // Boolean: Animate automatically, true or false
+      speed: 500,            // Integer: Speed of the transition, in milliseconds
+      timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+      pager: true,           // Boolean: Show pager, true or false
+      nav: false,             // Boolean: Show navigation, true or false
+      pause: true,           // Boolean: Pause on hover, true or false
+      pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+      maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+      navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+      manualControls: "",     // Selector: Declare custom pager navigation
+    });
+  });
+</script>

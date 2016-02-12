@@ -1,0 +1,36 @@
+<%= form_tag contact_us_path, class: 'form-horizontal', id: 'contactUsForm' do %>
+
+    <h2 id='contactUsHeading' class='center'>Contact Us</h2>
+
+    <div class="form-group" id="contactNameEmailDiv">
+      <!-- <span class="contact_us_input_label">
+          Your Name
+      </span><br> -->
+      <%= text_field_tag "name", "", :placeholder => "Name",
+        class: "form-control input-half-width", id: "contactName" %>
+      <!-- <span class="contact_us_input_label">
+          Your Email
+      </span><br> -->
+      <%= text_field_tag "email", "", :placeholder => "Email",
+        class: "form-control input-half-width", id: "contactEmail" %>
+    </div>
+
+    <div class="form-group" id="contactQuestionDiv">
+      <!-- <span class="contact_us_input_label">
+          Phone
+      </span> -->
+      <br><%= text_area_tag "question", "", :placeholder => "Any questions?",
+        class: "form-control", id: "contactQuestion" %>
+    </div>
+
+    <% if @zip.present? %>
+      <%= hidden_field_tag "zip", "",:value => @zip.zip %>
+    <% end %>
+
+    <div id='contactUsSubmitDiv'>
+      <%= submit_tag "Submit",
+        class: "btn btn-large btn-primary submit-button",
+        id: "contactUsSubmit" %>
+    </div>
+
+<% end %>

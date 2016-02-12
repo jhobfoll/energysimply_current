@@ -1,0 +1,18 @@
+Hello <%=@customer.first_name %>,
+
+Thank you for signing up with Energy Simply.  As mentioned we don't currently serve your area, but we know you have frustrations with choosing electricity providers and we plan on serving your area in the near future.
+
+The choice of where we go next will be partly based on demand so please tell your friends and family about our service and encourage them to sign up online.
+
+You can sign into Energy Simply with the following credentials:
+  Email: <%=@customer.email %>
+  Password: <%=@plain_pass%>
+
+Spread the word about Energy Simply using this link: <%= "http://energysimp.ly/" + @customer.referral_key %>
+
+Earn rewards when friends sign up. You will receive a Philips LED light bulb for your first referral, and you can earn many other energy-saving prizes for additional referrals, including a Nest Thermostat if you refer 25 people.
+
+Thanks again,
+
+Jordan Hobfoll
+CEO EnergySimp.ly

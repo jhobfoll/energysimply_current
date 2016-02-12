@@ -1,0 +1,50 @@
+<!-- <div id='leftFill' class='w15 left-fill-calculator hidden-xs'>&nbsp;</div> -->
+
+<div id="savingsCalculatorWrapper">
+
+  <div id="savingsCalculatorHeadingWrapper">
+
+      <div id="savingsCalculatorHeadingIconDiv">
+        <%= image_tag(asset_path("SavingsCalculatorHeadingIcon.png"),
+          :alt => "Savings Calculator Logo.",
+          :id => "savingsCalculatorHeadingIcon") %>
+      </div>
+
+      <h2>Energy Simply Savings Calculator</h2>
+
+      <h3 id='savingsCalculatorSubHeadingSimpler'>So much simpler than Power to Choose</h3>
+
+      <div id='savingsCalculatorSubHeadingHR' class='visible-xs'>&nbsp;</div>
+
+  </div>
+
+  <div id="savingsCalculatorIntroWrapper">
+
+    <p>Based on your actual usage, we determine how much you can save in the best available plan.</p>
+
+    <p class="savingsCalculatorIntroBold">Enter data from your most recent bill.<br/><br/>If you don't have a bill handy, just estimate!</p>
+
+  </div>
+  <a name="chartUp"></a>
+  <%= render "calculator_form" %>
+
+  <script>
+    // SELECT "CHEAPEST POWER" RADIO
+    $('#plan_type_Cheapest_Power').click();
+  </script>
+
+  <hr>
+
+  <h3 id='noSavingsResponse'>Great Job!  We cannot save you any money with available plans, but be
+    sure to check back. Plans are always changing.</h3>
+
+  <div id="calculatorOutput">
+    <% if @calculator_data_savings == true %>
+        <%= render "calculator_output" %>
+        <%= render "savings_calculator_main_js" %>
+    <% end %>
+  </div>
+
+</div>
+
+<!-- <div id='rightFill' class='w15 right-fill-calculator hidden-xs'>&nbsp;</div> -->

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @click_tracking.zip %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @click_tracking.url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @click_tracking.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_click_tracking_path(@click_tracking) %> |
+<%= link_to 'Back', click_trackings_path %>

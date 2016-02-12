@@ -1,0 +1,80 @@
+.rounded-lt-blue-bkgnd{
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -o-border-radius:5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius:5px;
+  -khtml-border-radius:5px;
+  background:#c7e0fb;
+}
+
+#submitBillHeading{
+  margin-left: 20%;
+  margin-bottom: 15px;
+}
+
+#containerLightBlueBackgroundSidePanels > form.new_user{
+    max-width: 750px;
+    margin: 0px auto;
+}
+
+.complete-reg-submit{
+  @media screen and (min-width:768px) {
+    font-size:22px;
+    width:260px;
+  }
+  font-size:18px;
+  width:215px;
+  margin-left:-10px;
+}
+
+form.new_user{
+}
+
+input#sign-up-submit-button.bill-submit{
+  width: 220px;
+  min-width: 150px;
+}
+
+#submitBillSubmitButton{
+  text-align: center;
+}
+
+// THESE ARE ALREADY DEFINED IN sign_up.css.scss
+
+// #sign-up-submit-button{
+//   height: 30px;
+//   margin-left: -14px;
+//   letter-spacing: 0em;
+//   font-size: 16px;
+//   border: 1px solid #B30808;
+//   background-color: #e40a0a;
+//   background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
+//   background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
+//   background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
+//   background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
+//   background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
+//   background-image: linear-gradient(to bottom, #e40a0a, #9f0202);
+//   filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+// }
+//
+// #sign-up-submit-button:hover{
+//   border: 2px solid;
+//   border-color: #FF6866 transparent #d20202 transparent;
+//   background-color: #f62b2b;
+//   background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
+//   background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+//   background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+//   background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+//   background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+//   background-image: linear-gradient(to bottom, #f62b2b, #d20202);
+//   filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+// }
+
+.next-steps{
+  width: 69%;
+  margin: 0 auto;
+  font-weight: bold;
+  padding: 10px 0px 10px 0px;
+  font-size: 22px;
+}

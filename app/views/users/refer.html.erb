@@ -1,0 +1,108 @@
+     <div class="header">
+        <div class="content">
+            <p class="byline">
+                <% if @user.plan_grade == 'gold' %>
+                    Thank You For Signing Up At The Gold Level.<br/>  We will contact you to complete your onboarding in the next 24 hours.
+                <% elsif @user.plan_grade == 'basic' %>
+                    Thank You For Signing Up At The Basic Level.<br/>  You will receive your plan recommendation in the next 24 hours.
+                <% else %>
+                <% end %>
+            </p>
+        </div>
+    </div>
+
+<div class="hero">
+        <div class="page-content row">
+            <div class="mammoth img-responsive">
+                <span class="need">Power Choice Is<br>Evolving</span>
+            </div>
+            <div class="share-wrap">
+                <p class="why">Don't leave your friends behind</p>
+                <p class="title">INVITE FRIENDS &<br>Earn A Nest Thermostat</p>
+                <p class="subtitle">Share your unique link via email, Facebook<br>or Twitter and for each friend who signs up:<br/><br/><b>Earn cutting edge rewards to lower your energy usage.</b></p>
+                <div class="copy-link"><%= @ref_link %></div>
+                <% twitter_message = "#Simplify how you get power plans. Excited for @EnergySimplyUSA to launch." %>
+                <div class="social-links">
+                    <a href="http://www.facebook.com/sharer/sharer.php?u=<%= @ref_link %>&title=EnergySimply" class="fb" target="_blank"></a>
+                    <div class="sep"></div>
+                    <a href="http://twitter.com/share?url=<%= @ref_link %>&text=<%= CGI::escape(twitter_message) %>" class="twit" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="prizes <%# if found %>prize-<%#= found["class"] %><%# end %>">
+    <div class="page-content">
+        <p class="callout">Here's How It Works:</p>
+        <ul class="products clearfix">
+            <li class="title"><p class="friends">Number of Friends Joined</p><p class="rewards">Energy Simply Rewards<br/><br/>(Rewards are cumulative)</p></li>
+            <% @level = 0 %>
+            <%# @referrals_count.times do |count| %>
+            <% 5.times do |count| %>
+
+                <!-- <li class="product <%# if stop["selected"] %>selected<%# end %> <%# if stop["class"] == 'five' %>last<%# end %>"> -->
+                <% if @referrals_count < (@prize_array[count][:qualf_level]).to_i %>
+                  <li class="product last">
+                <% else  %>
+                  <% @level = (count + 1) %>
+                  <% puts "Level Is: " + @level.to_s %>
+                  <li class="product selected">
+                <% end %>
+
+                <!-- class 'selected' makes it 'red' and 'last' makes it appear but clear.  Neither affects position. -->
+                    <div class="circle"><%= (@prize_array[count][:qualf_level]).to_i %></div>
+                    <div class="sep"></div>
+                    <div class="prize-image"><%= @prize_array[count][:name] %><%= image_tag( image_path(@prize_array[count][:image]), alt: (@prize_array[count][:name]) ) %></div>
+                </li>
+            <% end %>
+        </ul>
+         <%
+                if  @referrals_count >= 25
+                    @percent = 100
+                elsif 
+                    @referrals_count >= 12
+                    @percent = 80 + (@referrals_count-10) * (20/13)
+                elsif 
+                    @referrals_count >= 7
+                    @percent = 60 + (@referrals_count-5) * 4
+                elsif 
+                    @referrals_count >= 3
+                    @percent = 40 + (@referrals_count-3) * 5
+                elsif
+                    @referrals_count >= 1
+                    @percent = 20 + (@referrals_count-1) * 10
+                else
+                    @percent = 0
+                end
+            %>
+
+        <div class="progress">
+           <div class="progress-bar progress-bar-danger" role="progressbar"
+              aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+              style="width: <%= @percent %>%;">
+              <span class="sr-only"><%=@percent %>% Complete</span>
+           </div>
+           <!-- <div class="progress-bar progress-bar-danger" role="progressbar"
+              aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+              style="width: 40%;">
+              <span class="sr-only">10% Complete</span>
+           </div> -->
+        </div>
+        
+        <%
+            words = ''
+            if @referrals_count == 1
+                words = 'friend has'
+            else
+                words = 'friends have'
+            end
+        %>
+        <br/>
+        <% if @referrals_count == 0 %>
+            <p class="place"><span>No</span> friends have joined...Yet!</p>
+        <% else %>
+            <p class="place"><span><%= @referrals_count %></span> <%= words %> joined</p>
+        <% end %>
+        <p class="check">Keep checking</p>
+    </div>
+</div>

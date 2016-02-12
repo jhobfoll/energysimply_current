@@ -1,0 +1,283 @@
+<script>
+	// DRAW CHART, LEGEND, and Fill Savings Values
+
+	 // Custom Colors
+		ourRed = "#B52D2D"
+		ourGreen = "#2D3E50"
+
+		// TEMP DATA
+		// now being calculated
+		// currentRateData = [14, 18, 20, 22, 23, 32, 24, 23, 20, 18, 22, 14]
+		// bestPriceData = [30, 35, 36, 37, 39, 35, 39, 30, 36, 33, 32, 30]
+
+		// Must pass these in:
+		calculatorBillMonth  = <%= @bill_month.to_i %>;
+		calculatorBillKWH = <%= @bill_kwh.to_i %>;
+		calculatorBillCost = <%= @bill_mo_cost.to_i %>;
+
+		// REPOPULATE THE FORM
+		$('#calculatorMonthSelect').val(calculatorBillMonth);
+		$('#calc_kwh').val(calculatorBillKWH);
+		$('#calc_amtDue').val(calculatorBillCost);
+
+		bestPriceData = <%= @bestMonthCosts %>;
+
+	// SET GLOBAL ELEMENTS FOR ALL CHARTS
+		monthFactors = [ 0, 1, 0.8843, 0.7443, 0.6890, 0.8407, 1.1526, 1.3285, 1.4124, 1.1787, 0.8444, 0.67892, 0.8633 ]; // factor 0 is not used
+
+		constantCost = (calculatorBillCost / monthFactors[calculatorBillMonth])
+		widestMonthCost = ( constantCost * monthFactors[8] );
+		console.log("constantCost = " + constantCost);
+		console.log("widestMonthCost = " + widestMonthCost);
+
+
+		newWidth = ( widestMonthCost - 100 )  / ( (monthFactors[calculatorBillMonth]) / (monthFactors[8]) );
+		console.log("newWidthUnCapped = " + newWidth);
+
+		if (widestMonthCost > 200){ newWidth = 200 };
+		if (widestMonthCost < 150){ newWidth = 150 };
+
+		console.log("newWidth = " + newWidth);
+
+
+		InitialWindowWidth = $(window).outerWidth() + 16;
+		console.log("InitialWindowWidth = " + InitialWindowWidth);
+
+		switch(true) {
+		case (InitialWindowWidth > 1200):
+				chartWidthPerViewport = Math.round(newWidth)
+				break;
+
+		case (InitialWindowWidth > 992):
+				chartWidthPerViewport = Math.round(newWidth * .85)
+				break;
+    case (InitialWindowWidth > 768):
+        chartWidthPerViewport = Math.round(newWidth * .65)
+        break;
+    case (InitialWindowWidth > 650):
+        chartWidthPerViewport = Math.round(newWidth * .75)
+        break;
+		case (InitialWindowWidth > 500):
+				chartWidthPerViewport = Math.round(newWidth * .70)
+				break;
+		case (InitialWindowWidth > 380):
+				chartWidthPerViewport = Math.round(newWidth * .50)
+				break;
+    default: // portrait mobile iphone
+        chartWidthPerViewport = Math.round(newWidth * .35)
+		}
+
+		//chartWidthPerViewport = Math.round(chartScale*InitialWindowWidth);
+		console.log("chartWidthPerViewport = " + chartWidthPerViewport);
+
+			chartWidth       = chartWidthPerViewport,
+			//chartWidth       = newWidth
+			barHeight        = 20,
+			groupHeight      = barHeight * 2// data_current_usage.series.length,
+			gapBetweenGroups = 10,
+			spaceForLabels   = 90;
+			spaceForLegend   = 90;
+
+			chartHeight = barHeight * 24 + gapBetweenGroups * 12;
+
+		// Specify the chart area and dimensions
+			chart_current_usage = d3.select(".chart_current_usage")
+					.attr("width", spaceForLabels + chartWidth + spaceForLegend)
+					.attr("height", chartHeight);
+
+			chart_labels = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August',
+				'September', 'October', 'November', 'December'];
+			currentRateData = [];
+			savingsData = [];
+			currentRateDataStrings = [];
+			bestPriceDataStrings = [];
+
+			constantMonth = (calculatorBillKWH / monthFactors[calculatorBillMonth]);
+			currentCostKWH = (calculatorBillCost / calculatorBillKWH);
+
+
+		// END GLOBAL ELEMENTS FOR ALL CHARTS
+
+		// Populate Current Mo-Usage Array
+		for (i = 1; i <= 12; ++i) {
+			currentRateData.push( (constantMonth * monthFactors[i] * currentCostKWH).toFixed(2) );
+			currentRateDataStrings.push( '$' + ((constantMonth * monthFactors[i] * currentCostKWH).toFixed(2)).to_s );
+		}
+
+		// Populate Savings Array and calculate savingsTotal
+		savingsTotal = 0.01;
+		thisMoSavings = 0;
+		for (i = 0; i < currentRateData.length; ++i) {
+			thisMoSavings = ( (currentRateData[i] - bestPriceData[i]).toFixed(2) );
+			savingsData.push(thisMoSavings);
+			savingsTotal += ( parseFloat(thisMoSavings) );
+			// console.log('thisMoSavings is: ' + parseFloat(thisMoSavings).toFixed(2));
+			// console.log('savingsTotal is: ' + savingsTotal);
+		}
+		savingsTotal = parseFloat(savingsTotal).toFixed(2);
+		//console.log('savingsTotal is: ' + savingsTotal);
+
+
+		// CHECK IF WE CAN SAVE THEM $$ FROM OUR BEST PLAN.
+		if ( savingsTotal < 1 ){ // DO NOT DISPLAY GRAPH; SHOW OTHER MSG
+				$('#noSavingsResponse').css('display', 'inline');
+				$('#calculatorOutput').css('display', 'none');
+		}
+		else { // GO AHEAD AND CALCULATE THE REST, AND BUILD THE GRAPH
+
+			$('#noSavingsResponse').css('display', 'none');
+			$('#calculatorOutput').css('display', 'block');
+
+			for (i = 0; i < bestPriceData.length; ++i) {
+				bestPriceDataStrings.push( '$' + ((bestPriceData[i]).toFixed(2)).to_s );
+			}
+
+			// --- SHIFT ALL ARRAYS BY MONTH SO CURRENT/NEXT MONTH IS AT TOP
+			// THE FOLLOWING ARRAYS MUST BE SHIFTED:
+			// bestPriceData, currentRateData, savingsData, chart_labels, currentRateDataStrings, bestPriceDataStrings
+			// remove from front of array (shift) and add to end of array (push) X times where X is months > January
+
+			el = 0;
+			el_s = '';
+			shift_count = <%= @array_shift %>
+			for (i = 0; i < shift_count; ++i){
+				el = bestPriceData.shift();
+				bestPriceData.push(el);
+
+				el = currentRateData.shift();
+				currentRateData.push(el);
+
+				el = savingsData.shift();
+				savingsData.push(el);
+
+				el_s = chart_labels.shift();
+				chart_labels.push(el_s);
+
+				el_s = currentRateDataStrings.shift();
+				currentRateDataStrings.push(el_s);
+
+				el_s = bestPriceDataStrings.shift();
+				bestPriceDataStrings.push(el_s);
+
+			}
+			// --- END SHIFT ARRAYS ---
+
+			for (var i = 0; i < savingsData.length; i++) {
+				// console.log(savingsData[i]);
+				currentDivID = ( 'monthlySavings_' + i.toString() );
+				savingsContent = ( '$' + savingsData[i].toString() );
+				$('<div/>', {
+			    class: 'monthly-savings-element',
+					id: currentDivID,
+			    text: savingsContent
+				}).appendTo('#savings_output');
+			};
+
+			$('span#savingsTotalTopTotal').text(savingsTotal.toString());
+			$('<div/>', {
+				class: 'monthly-savings-element',
+				id: 'savingsTotal',
+				text: ( '$' + savingsTotal.toString() )
+			}).appendTo('#savings_output');
+
+			var data_current_usage = {
+				labels: chart_labels,
+				series: [
+					{
+						label: 'Current Rate',
+						values: currentRateData
+					},
+					{
+						label: 'Best Price',
+						values: bestPriceData
+					},]
+			};
+
+			// Zip the series data together (first values, second values, etc.)
+			var zippedData_current_usage = [];
+			for (var i=0; i<data_current_usage.labels.length; i++) {
+				for (var j=0; j<data_current_usage.series.length; j++) {
+					zippedData_current_usage.push(data_current_usage.series[j].values[i]);
+				}
+			}
+
+			// Color scale
+			var color = d3.scale.category20c();
+
+			// moved up to global values
+			//var chartHeight = barHeight * zippedData_current_usage.length + gapBetweenGroups * data_current_usage.labels.length;
+
+			var x = d3.scale.linear()
+					.domain([0, d3.max(zippedData_current_usage)])
+					.range([0, chartWidth]);
+
+			var y = d3.scale.linear()
+					.range([chartHeight + gapBetweenGroups, 0]);
+
+			var yAxis = d3.svg.axis()
+					.scale(y)
+					.tickFormat('')
+					.tickSize(0)
+					.orient("left");
+
+
+			// Create bars
+			var bar = chart_current_usage.selectAll("g")
+					.data(zippedData_current_usage)
+					.enter().append("g")
+					.attr("transform", function(d, i) {
+						return "translate(" + spaceForLabels + "," + (i * barHeight + gapBetweenGroups * (0.5 + Math.floor(i/data_current_usage.series.length))) + ")";
+					});
+
+			// Create rectangles of the correct width
+				bar.append("rect")
+					// .attr("fill", function(d,i) {
+					// 	return color( i % data_current_usage.series.length );
+					// })
+					.attr("fill", function(d,i){
+						return ((i % data_current_usage.series.length) == 0) ? ourRed : ourGreen
+						}
+					)
+					.attr("class", "bar")
+					.attr("width", x)
+					.attr("height", barHeight - 1);
+
+			// Add text label in bar
+			bar.append("text")
+					.attr("x", function(d) { return x(d) - 3; })
+					.attr("y", barHeight / 2)
+					.attr("fill", "red")
+					.attr("dy", ".35em")
+					.text(function(d) { return ('$' + d3.format(",.2f")(d)); });
+
+			// Draw labels
+			bar.append("text")
+					.attr("class", "label")
+					.attr("x", function(d) { return - 10; })
+					.attr("y", groupHeight / 2)
+					.attr("dy", ".35em")
+					.text(function(d,i) {
+						if (i % data_current_usage.series.length === 0)
+							return data_current_usage.labels[Math.floor(i/data_current_usage.series.length)];
+						else
+							return ""});
+
+			chart_current_usage.append("g")
+						.attr("class", "y axis")
+						.attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
+						.call(yAxis);
+
+		// Draw legend
+			// Their legend is clumsy.  I'll make my own and just apply our color to it:
+
+			$('.legend_1a').css('background-color', ourRed)
+			$('.legend_1b').css('color', ourRed)
+			$('.legend_2a').css('background-color', ourGreen)
+			$('.legend_2b').css('color', ourGreen)
+
+		// Jump down the screen so the graph is visible:
+
+		window.location.href = "#chartUp";
+
+		} // END ELSE FOR "IF WOULD HAVE SAVINGS FROM OUR BEST PLAN"
+</script>

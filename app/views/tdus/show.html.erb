@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tdu.name %>
+</p>
+
+<p>
+  <strong>Apt avg:</strong>
+  <%= @tdu.apt_avg %>
+</p>
+
+<p>
+  <strong>Apt best:</strong>
+  <%= @tdu.apt_best %>
+</p>
+
+<p>
+  <strong>House avg:</strong>
+  <%= @tdu.house_avg %>
+</p>
+
+<p>
+  <strong>House best:</strong>
+  <%= @tdu.house_best %>
+</p>
+
+<%= link_to 'Edit', edit_tdu_path(@tdu) %> |
+<%= link_to 'Back', tdus_path %>

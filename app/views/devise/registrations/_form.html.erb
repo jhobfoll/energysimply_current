@@ -1,0 +1,29 @@
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="form-group">
+    
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %><br />
+
+    <%= f.label :plan_type, "Power plan preference" %>
+	<%= f.select :plan_type, 
+				options_for_select([["Cheapest Power"], ["Most Affordable 100% Renewable"]]),
+				:value=> ( (params[:plan_type]).present? ? (params[:plan_type]) : "Cheapest Power" ),  
+			    class: "form-control" %>
+			    
+	<%= f.hidden_field :zip_id, :value=>(params[:zip_id]) %>
+    <%= f.hidden_field :service_type, :value=>(params[:service_type]) %>
+    
+    <!-- These are only passed in case of a form-submission error, to repopulate it -->
+    <%= hidden_field_tag :city, (params[:city]) %>
+    <%= hidden_field_tag :elec_choice_value, (params[:elec_choice_value]) %>
+
+  </div>
+
+  <div class="form-group">
+  	<%= f.submit "Beta customer sign up", class: "btn btn-primary" %>
+  </div>
+  
+<% end %>
+

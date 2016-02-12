@@ -1,0 +1,63 @@
+<%= form_tag savings_calculator_path, class: 'form-horizontal', id: 'savingsCalculatorForm', :remote => true do %>
+
+    <% if @zip.blank? %>
+      <div class="form-group">
+        <span class="calculator_input_label">Zip Code
+        </span>
+        <%= text_field_tag "calculator_zip", "", :placeholder => "",
+          class: "form-control", id: "calc_zip" %>
+      </div>
+    <% else %>
+      <%= hidden_field_tag "calculator_zip", "",:value => @zip.zip %>
+    <% end %>
+
+    <div class="form-group" id="calc_month-div">
+      <span class="calculator_input_label">Bill Month (MM)
+        <span class='question'>?<div class='tooltip'>
+          Enter The Month For This Bill
+          <%#= image_tag(asset_path("CalculatorHelp_BillSnippet2.png"), :alt => "bill_help_2", :class => "img-responsive") %>
+        </div></span>
+      </span>
+      <br><%= select_month(0 , {prompt: 'Choose month'}, {class: "form-control", id: "calculatorMonthSelect"}) %>
+    </div>
+
+    <div class="form-group">
+      <span class="calculator_input_label">Usage (KWH)
+        <span class='question'>?<div class='tooltip'>
+          Enter The KWH Usage For This Bill
+          <%#= image_tag(asset_path("CalculatorHelp_BillSnippet3.png"), :alt => "bill_help_3", :class => "img-responsive") %>
+        </div></span>
+      </span>
+      <%= text_field_tag "calculator_bill_kwh", "", :placeholder => "",
+        class: "form-control", id: "calc_kwh" %>
+    </div>
+
+    <div class="form-group">
+      <span class="calculator_input_label">Amount Due ($)
+        <span class='question'>?<div class='tooltip'>
+          Enter The Payment Due For This Bill
+          <%= image_tag(asset_path("CalculatorHelp_BillSnippet1.png"), :alt => "bill_help_1", :class => "img-responsive") %>
+        </div></span>
+      </span>
+      <%= text_field_tag "calculator_bill_mo_cost", "", :placeholder => "",
+        class: "form-control", id: "calc_amtDue" %>
+    </div>
+
+    <div class="form-group" id='radioPowerType' >
+      <span class="calculator_input_label_preference">Energy Source Preference</span></br>
+      <%= radio_button_tag :plan_type, "Cheapest Power", checked: true,
+        class: 'plan-type-radio', id: 'plan-cheapest' %>
+      <span class="calculator_radio_input_label">Cheapest Power</span>
+      <br>
+      <%= radio_button_tag :plan_type, "Most Affordable 100% Renewable",
+        class: 'plan-type-radio', id: 'plan-renewable' %>
+      <span class="calculator_radio_input_label">Most Affordable 100% Renewable</span>
+    </div>
+
+    <div id='calculateSavingsFormSubmitDiv'>
+      <%= submit_tag "Calculate Savings",
+        class: "btn btn-large btn-primary submit-button",
+        id: "calculate_savings_submit" %>
+    </div>
+
+<% end %>

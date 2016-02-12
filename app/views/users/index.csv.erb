@@ -1,0 +1,15 @@
+<% headers = ['First Name', 'Last Name', 'Email', 'Phone', 'Address_1', 'Address_2', 'City', 'State', 'Zip'] %>
+<%= CSV.generate_line headers %>
+<% @users.each do |user| %>
+  <% if user.zip.present? %>
+    <%= CSV.generate_line([user.first_name, user.last_name, user.email, user.phone, user.billing_address_1, 
+  			 user.billing_address_2, user.zip.city, user.zip.state, user.zip.zip, user.plan_grade, 
+  			 @last_transaction_result],
+                      :row_sep => '') %>
+  <% else %>
+    <%= CSV.generate_line([user.first_name, user.last_name, user.email, user.phone, user.billing_address_1, 
+  			 user.billing_address_2, 'no city', 'no state', 'no zip', user.plan_grade, 
+  			 @last_transaction_result],
+                      :row_sep => '') %>
+  <% end %>
+<% end %>

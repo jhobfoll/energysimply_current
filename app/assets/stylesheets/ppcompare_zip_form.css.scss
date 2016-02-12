@@ -1,0 +1,109 @@
+#pp_zip_lookup_form{
+  padding: 10px 0 10px 0;
+}
+
+#div-pp-zip-input{
+  float:left;
+  height:23px;
+  margin: 0px 10px 10px 0;
+  float: left;
+  display: inline-block;
+}
+
+#pp_compare_zip_field{
+  width:100%;
+  max-width: 200px;
+}
+
+#div-pp-zip-lookup-select{
+  float:left;
+  width:300px;
+  height:23px;
+  overflow: hidden;
+  background: image-url('home_type_button.png') no-repeat right #ddd;
+  border: 0px solid #ccc;
+  border-radius:20px;
+  float: left;
+  margin-right:10px;
+  max-width: 100%;
+  @media screen and (min-width:768px)  and (max-width:1200px) {
+     // margin: 10px 0px 10px 0px;
+     width: 300px;
+  }
+  @media screen and (max-width:767px) {
+    margin-bottom:10px;
+    width: 280px;
+  }
+}
+
+#home_type{
+  margin-top: -6px;
+  font-size:10px;
+  text-align:left;
+  font-weight:normal;
+  text-indent:50px;
+  line-height: 1;
+  color:#FFF;
+  background: rgba(0,0,0,0);
+  width: 320px;
+  height: 34px;
+  padding: 2px 0 0 25px;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  > option{
+   background: #617C99;
+  }
+}
+
+// fix for Chrome & Safari
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .home-type > .home-type-select{
+    padding: 0 0 0 25px;
+    margin-top: -3px;
+    letter-spacing: .1em;
+  }
+}
+
+// Fix for Firefox
+@-moz-document url-prefix() {
+    .home-type > .home-type-select{
+      text-indent:0;
+    }
+  }
+
+  // fix for Opera
+noindex:-o-prefocus, .home-type > #home_type.home-type-select{
+  margin-top:-4px;
+  > option{
+   background: #555;
+  }
+}
+
+doesnotexist:-o-prefocus, .home-type > #home_type.home-type-select{
+  margin-top:-4px;
+  > option{
+   background: #555;
+  }
+}
+
+ // fixes for IE
+.ie .home-type{
+   width:250px;
+   > .home-type-select{
+    margin-top: -10px;
+    padding: 0 0 0 20px;
+   }
+}
+
+
+// IE 10 and 11 Fixes
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	/* IE10+ CSS styles go here */
+}
+
+
+#pp_compare_zip_lookup_submit{
+  vertical-align: bottom;
+  float:left;
+}

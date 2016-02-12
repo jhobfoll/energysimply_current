@@ -1,0 +1,464 @@
+li.product{
+	list-style-type: none;
+}
+
+.prize-image{
+	margin-left: 8px;
+	margin-top: 15px;
+}
+
+form{
+	margin-bottom: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+/* Refer a friend page */
+
+.wf-loading .brandon{
+	visibility: hidden;
+}
+
+.brandon{
+	font-family: "Brandon Grotesque", "brandon-grotesque", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+}
+
+#refer{
+	background: #FFF;
+}
+
+.page-content{
+	width: 1120px;
+	margin: 0 auto;
+	z-index: 0;
+	position: relative;
+}
+
+.header{
+height: 72px;
+	background: #074E6F;
+	width: 100%;
+	overflow:hidden;
+	z-index: 0;
+	position: relative;
+}
+
+.header .content{
+	width: 315px;
+	margin: 0 auto;
+}
+
+.header p{
+	float: left;
+	color: #FFF;
+	font-weight: 500;
+	text-transform: uppercase;
+	line-height: 34px;
+}
+
+.header .byline{
+	font-size: 21px;
+	width: 1201px;
+	margin-left: -440px;
+}
+
+.header .logo{
+	font-weight: normal;
+	font-size: 0;
+	line-height: 0;
+	margin-right: 14px;
+	letter-spacing: 1px;
+	background:  0 0 no-repeat;
+	background-size: 106px 19px;
+	height: 19px;
+	width: 106px;
+	margin-top: 15px;
+}
+
+.hero{
+	background: #E9E9E9;
+	height: 391px;
+	//overflow: hidden;
+	overflow-y: hidden;
+	overflow-x: auto;
+}
+
+.mammoth{
+	width: 612px;
+	height: 394px;
+	background: url(<%= asset_path('lightbulbs_gray.jpg') %>) 0 0 no-repeat;
+	background-size: 610px 394px;
+	// overflow: hidden;
+	margin-top: 15px;
+	float: left;
+	width: 50%
+}
+
+.mammoth .need{
+	font-size: 38px;
+text-transform: uppercase;
+font-weight: bold;
+margin: 6px 0 0 13px;
+display: block;
+line-height: 56px;
+letter-spacing: 4px;
+text-align: left;
+color: darkgreen;
+width: 399px;
+}
+
+.share-wrap{
+	float: right;
+	// width: 440px;
+	text-transform: uppercase;
+	letter-spacing: .13em;
+	margin-right: -40px;
+}
+
+.share-wrap .why{
+	font-size: 16px;
+	color: #555556;
+	font-weight: bold;
+	margin-top: 42px;
+}
+
+.share-wrap .title{
+	font-size: 30px;
+	line-height: 40px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #074E6F;
+	margin-top: 18px;
+	letter-spacing: .13em;
+}
+
+.share-wrap .subtitle{
+	color: #565656;
+	font-size: 14px;
+	text-transform: none;
+	margin-top: 15px;
+}
+
+.share-wrap .copy-link{
+	border: 1px solid #D1D0C7;
+	background: #FFF;
+	padding: 10px 0;
+	width: 320px;
+	text-transform: none;
+	font-size: 14px;
+	text-indent: 10px;
+	margin-top: 13px;
+}
+
+.share-wrap .social-links{
+	width: 120px; 
+	height: 37px;
+	margin: 25px 0px 0px 0px;
+	text-align: center;
+}
+
+.share-wrap .social-links a, .share-wrap .social-links div{
+	display: inline-block;
+}
+
+.share-wrap .social-links .fb{
+	background: url(<%= asset_path('fb.png') %>);
+	background-size: 27px 27px;
+	width: 27px;
+	height: 27px;
+}
+
+.share-wrap .social-links .twit{
+	background: url(<%= asset_path('twit.png') %>);
+	background-size: 27px 27px;
+	width: 27px;
+	height: 27px;
+}
+
+.share-wrap .social-links .sep{
+	height: 28px;
+	width: 1px;
+	background: #BAB9BA;
+	margin: 0 20px;
+}
+
+.prizes{
+	width: 100%;
+	background: #FFF;
+	border-top: 1px solid #D2D1C8;
+	padding-bottom: 100px;
+	overflow-x: auto;
+}
+
+.prizes .page-content{
+	position: relative;
+}
+
+.prizes .callout{
+	text-align: center;
+	font-size: 16px;
+	color: #074E6F;
+	font-weight: bold;
+	margin: 20px 0 0 0;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.prizes .progress{
+	height: 9px;
+	width: 1085px;
+	margin-left: 0px;
+	background-size: 1px 4px;
+	position: absolute;
+	top: 100px;
+	z-index: 0;
+
+}
+
+.prizes .progress .mover{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.prizes .progress .mover .bar{
+	background: url(<%= asset_path('progress-done.png') %>) 0 0 repeat-x;
+	width: 165px;
+	height: 4px;
+	-webkit-background-size: 1px 4px;
+	background-size: 1px 4px;
+}
+
+.prize-two .progress .mover .bar{ width: 312px; }
+.prize-three .progress .mover .bar{ width: 566px; }
+.prize-four .progress .mover .bar{ width: 820px; }
+.prize-five .progress .mover .bar{ width: 1120px; }
+
+
+.prizes ul.products{
+	height: 170px;
+	width: 100%;
+	margin-top: 30px;
+	position: relative;
+	z-index: 1;
+}
+
+.prizes .products li.title{
+	height: 100%;
+	text-transform: uppercase;
+	color: #074E6F;
+	font-weight: 500;
+	font-size: 14px;
+	float: left;
+	margin-right: 68px;
+	width: 165px;
+	font-weight: bold;
+}
+
+.prizes .products li.title .friends{
+	margin-top: -5px;
+	letter-spacing: 2px;
+}
+
+.prizes .products li.title .rewards{
+	margin-top: 25px;
+	letter-spacing: 2px;
+}
+
+.prizes .products li.product{
+	height: 100%;
+	color: #074E6F;
+	width: 97px;
+	margin-right: 100px;
+	float: left;
+	position: relative;
+}
+
+.prizes .products li.product .circle{
+	height: 30px;
+	width: 30px;
+	border-radius: 15px;
+	border: 1px solid #DAD9D2;
+	text-align: center;
+	line-height: 30px;
+	color: #868282;
+	overflow: hidden;
+	background: #F1F0EE;
+	font-weight: bold;
+	margin: 0 auto;
+}
+
+.prizes .products li.product .sep{
+	width: 12px;
+	height: 2px;
+	background: transparent;
+	margin: 13px auto 13px;
+}	
+
+.prizes .products li.product .caret{
+	width: 100%;
+	height: 10px;
+	background: center center no-repeat;
+	background-size: 16px 10px;
+	position: absolute;
+	bottom: -15px;
+}
+
+.prizes .products li.product.selected li.product.last .caret{
+	background: center center no-repeat;
+	background-size: 16px 10px;
+}
+
+.prizes .products li.product p{
+	text-align: center;
+	font-weight: 500;
+}
+
+.prizes .products li.product:last-child{
+	margin-right: 0;
+}
+
+
+.prizes .products li.product.selected .circle{
+	background: #995F5E !important;
+	border-color: #995F5E !important;
+	color: #FFF !important;
+}
+
+
+.prizes .products li.product.selected p{
+	color: #995F5E !important;
+}
+
+.prizes .products li.product:hover .circle{
+	color: #FFF;
+	background: #074E6F;
+	border-color: #074E6F;
+}
+
+.prizes .products li.product .tooltip{
+	height: 254px;
+	width: 190px;
+	border: 4px solid #074E6F;
+	position: absolute;
+	top: -285px;
+	left: -32px;
+	display: none;
+	background: #FFF;
+}
+
+.prizes .products li.product .tooltip img{
+	margin: 0 auto;
+	display: block;
+}
+
+.prizes .products li.product:hover .tooltip{
+	display: block;
+}
+
+.prizes p.place{
+	text-align: center;
+	font-size: 16px;
+	color: #074E6F;
+	width: 100%;
+	font-weight: 500;
+	margin-top: 30px;
+}
+
+.prizes p.place span{
+	color: #995F5E;
+}
+
+.prizes p.check{
+	text-align: center;
+	font-size: 16px;
+	color: #858181;
+	width: 100%;
+	font-weight: 500;
+	margin-top: 5px;
+}
+
+.prizes p.ship{
+	text-align: center;
+	font-size: 16px;
+	color: #858181;
+	width: 100%;
+	font-weight: 500;
+	margin-top: 50px;
+}
+
+.prizes a.policy{
+	text-align: center;
+	font-size: 12px;
+	color: #CCCCCC;
+	width: 100%;
+	font-weight: 500;
+	margin-top: 5px;
+	display: block;
+	text-decoration: none;
+}
+
+
+
+/*
+	RETINA
+*/
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+
+	.header .logo{
+		background: 0 0 no-repeat;
+		background-size: 106px 19px;
+	}
+
+	.mammoth{
+		background: url(<%= asset_path('lightbulb.jpg') %>) 0 0 no-repeat;
+		background-size: 610px 394px;
+	}
+
+	.share-wrap .social-links .fb{
+		background: url(<%= asset_path('fb@2x.png') %>) ;
+		background-size: 27px 27px;
+	}
+
+	.share-wrap .social-links .twit{
+		background: url(<%= asset_path('twit@2x.png') %>);
+		background-size: 27px 27px;
+	}
+
+	.prizes .progress{
+		background: url(<%= asset_path('progress-bg@2x.png') %>) 0 0 repeat-x;
+		background-size: 1px 4px;
+	}
+
+	.prizes .progress .mover .bar{
+		background: url(<%= asset_path('progress-done@2x.png') %>) 0 0 repeat-x;
+		background-size: 1px 4px;
+	}
+
+	.prizes .progress .mover .razor{
+		background:  0 0 no-repeat;
+		background-size: 82px 23px;
+	}
+
+	.prizes .products li.product .caret{
+		background:  center center no-repeat;
+		background-size: 16px 10px;
+	}
+
+	.prizes .products li.product.selected .caret{
+		background: center center no-repeat;
+		background-size: 16px 10px;
+	}
+}

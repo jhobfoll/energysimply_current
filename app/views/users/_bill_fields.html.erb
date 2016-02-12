@@ -1,0 +1,15 @@
+<br>
+<div class="form-group">
+  <div class="field">
+    <%= f.label :bill_month, "Month of bill" %><br>
+    <%= f.select :bill_month, :Month => ([['January','1'],['February','2'],['March','3'],['April','4'],['May','5'],['June','6'],['July','7'],['August','8'],['September','9'],['October','10'],['November','11'],['December','12']]) %>
+  </div><br />
+  <div class="field">
+    <%= f.label :kwh_usage, "kWh usage from bill" %><br>
+    <%= f.text_field :kwh_usage, class: "form-control" %>
+  </div><br />
+  <div class="field">
+    <%= f.label :last_bill_amount, "Bill Amount" %><br>
+    $<%= f.text_field :last_bill_amount, class: "cost", :value => (number_with_precision(f.object.last_bill_amount, :precision => 2) || 0 ) %>
+  </div>
+</div>

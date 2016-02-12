@@ -1,0 +1,46 @@
+<div class="jumbotron center">
+	<h3>Users List</h3>
+	<div id="Users" class="transitions-enabled">
+		<table class="table table-striped">
+		  <tr>
+		    <th>First Name</th>
+		    <th>Middle Initial</th>
+		    <th>Last Name</th>
+		    <th>Maiden Name</th>
+		    <th>Email</th>
+		    <th>Phone</th>
+		    <th>Zip</th>
+		    <th>Plan selection</th>
+		    <th>Preference</th>
+		    <th>Created At</th>
+		  </tr>
+		 
+			<% @users.each do |user| %>
+			  <tr>
+			    <td><%= user.first_name %></td>
+			    <td><%= user.middle_initial %> </td>
+			    <td><%= user.last_name %> </td>
+			    <td><%= user.maiden_name %> </td>
+			    <td><%= user.email %></td>
+				<td><%= user.phone %></td>
+				<% if user.zip.present? %>
+					<td><%= user.zip.zip %></td>
+				<% else %>
+					<td></td>
+				<% end %>
+				<td><%= user.plan_grade %></td>
+				<td><%= user.plan_type %></td>
+				<td><%= user.created_at %></td>
+			
+				<td><%= link_to 'Show', user_path(user) %></td>
+			    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+				<td><%= button_to "delete", user, method: :delete, class: :destroy, data: { confirm: "You sure?" }  %></td>
+				
+			  </tr>
+			<% end %>
+			Download All Users <%= link_to "As CSV File", users_path(format: "csv") %>
+			
+		</table>
+	</div>
+</div>
+

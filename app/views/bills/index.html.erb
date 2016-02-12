@@ -1,0 +1,58 @@
+<h1>Listing bills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Svc address 1</th>
+      <th>Svc address 2</th>
+      <th>Current provider</th>
+      <th>Kwh usage</th>
+      <th>Energy charge</th>
+      <th>Usage charge</th>
+      <th>Esi</th>
+      <th>Meter number</th> 
+      <th>Account number</th>
+      <th>Plan End Date</th>
+      <th>Last Bill Amount</th>
+      <th>Bill image</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+    
+      <tr>
+        <td><%= bill.user.first_name %></td>
+        <td><%= bill.user.last_name %></td>
+        <td><%= bill.svc_address_1 %></td>
+        <td><%= bill.svc_address_2 %></td>
+        <td><%= bill.current_provider %></td>
+        <td><%= bill.kwh_usage %></td>
+        <td><%= bill.energy_charge %></td>
+        <td><%= bill.usage_charge %></td>
+        <td><%= bill.esi_id %></td>
+        <td><%= bill.meter_number %></td>
+        <td><%= bill.account_number %></td>
+        <td><%= bill.plan_end_date %></td>
+        <td><%= bill.last_bill_amount %></td>
+        <td><%= bill.bill_image %></td>
+		<% if bill.user.present? %>
+			<td><%= bill.user.first_name %></td>
+		<% else %>
+			<td></td>
+		<% end %>
+        
+        <td><%= link_to 'Show', bill %></td>
+        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
+        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  Download All Bills <%= link_to "As CSV File", bills_path(format: "csv") %>
+</table>
+
+<br>
+
+<%= link_to 'New Bill', new_bill_path %>

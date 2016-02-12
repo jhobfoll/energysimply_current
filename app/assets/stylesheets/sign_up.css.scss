@@ -1,0 +1,600 @@
+// SIGN UP FORM
+
+.sign-up-body{
+  color: #000;
+  margin: 0 0 0 8%;
+  float: left;
+  width: 50%;
+  @media screen and (max-width:991px) {
+    margin: 0 0 0 0;
+  }
+  @media screen and (max-width:768px) {
+    width:50%;
+  }
+  @media screen and (max-width:500px) {
+    width:90%;
+  }
+
+  > p {
+    // color: #617C99;
+  }
+  > a {
+    text-decoration: underline;
+  }
+  @media screen and (min-width:993px) and (max-width:1150px) {
+    margin: 0 0 0 5%;
+  }
+}
+
+div.left-fill-sign-up{
+  height: calc(100% + 85px) !important;
+}
+
+div.right-fill-sign-up{
+  height: calc(100% + 75px) !important;
+  margin-top: -80px !important;
+  margin-bottom: -25px !important;
+}
+
+.signUpWrapper{
+  margin: 0px auto;
+  text-align: left;
+  min-height: 450px;
+  @media (max-width: 991px) {
+    // width: 73%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.sign-up-not-served-wrapper{
+  margin-left: 15%;
+}
+
+.sign-up-progress-head{
+  position: relative;
+  width: 84%;
+  height: 15px;
+  margin-left: 2.6%;
+  margin-bottom: 35px;
+}
+
+#progressLineLeft, #progressLineRight{
+  display: inline-block;
+  position: absolute;
+  top: 12px;
+  width: 50%;
+  height: 2px;
+  padding-top:2px;
+  background-color: #7F7F7F;
+  &.active{
+    background-color: #00B050;
+  }
+}
+
+#progressLineLeft{
+  margin-left: calc(5% + 34px);
+}
+
+#progressLineRight{
+  margin-left: calc(55% + 34px);
+}
+
+
+#progressLineDot1, #progressLineDot2, #progressLineDot3{
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  background-color: #7F7F7F;
+  border-radius: 5px;
+  &.active{
+    background-color: #00B050;
+  }
+}
+
+
+#progressLineDot1{
+  left: calc(5% + 30px);
+}
+
+#progressLineDot2{
+  left:  calc(55% + 30px);
+}
+
+#progressLineDot3{
+  left: calc(105% + 30px);
+}
+
+#progressLineDot1_text, #progressLineDot2_text, #progressLineDot3_text{
+  display: inline-block;
+  position: absolute;
+  top: 22px;
+  font-size: 9px;
+  line-height: 9px;
+  font-weight: bold;
+}
+
+#progressLineDot1_text{
+  left: calc(5% + 30px);
+  text-align: left;
+
+}
+
+#progressLineDot2_text{
+  left:  calc(55% + 17px);
+  text-align: center;
+}
+
+#progressLineDot3_text{
+  left: calc(105% + 23px);
+  text-align: right;
+}
+
+
+#whyLoveES{
+  float: right;
+  background-color: #F2F2F2;
+  border-radius: 15px;
+  width: 33%;
+  padding: 10px 20px;
+  margin-top: 15px;
+  margin-right: 5%;
+  > ul {
+    margin-left:15px;
+  }
+  @media (max-width: 991px) {
+    margin-right: 15px;
+  }
+  @media (max-width: 500px) {
+    float: left;
+    clear: left;
+    width: 90%;
+    margin-left: 2%;
+    margin-right: 0;
+  }
+}
+
+.sign-up-sub-header{
+  font-size: 19px;
+  font-weight: bold;
+  margin: 10px 30px 0 0;
+  max-width: 840px;
+}
+
+#new_user.form-horizontal{
+  margin: 0px 30px 0px 0;
+  color:#757575;
+  max-width:840px;
+  min-width: 470px;
+}
+
+.sign-up-zip-field{
+  margin: 12px 0 -15px 0;
+  width: 40%;
+}
+
+.sign-up-label{
+  display: inline-block;
+  clear: left;
+  text-align: right;
+  width: 25%;
+  padding: 0 15px 5px 5px;
+  font-size: 12px;
+  @media (max-width: 768px) {
+    padding-left: 2px;
+  }
+}
+
+.sign-up-esp-label{
+
+}
+
+// .half-width-label{
+//   display: inline-block;
+//   padding: 0 33% 5px 5px;
+//   @media screen and (max-width:850px) {
+//     padding-right:32%;
+//   }
+// }
+
+input.sign-up-input{
+  display: inline-block;
+  width: 45%;
+  border-radius: 5px;
+  background-color: #FFF;
+  height: 25px;
+  padding: 0 7px;
+}
+
+@media (min-width: 768px) {
+    input.sign-up-input::-webkit-input-placeholder{
+      color: rgba(0, 0, 0, 0);
+    }
+    input.sign-up-input::-moz-placeholder,
+    input.sign-up-input:-moz-placeholder{
+      color: rgba(0, 0, 0, 0);
+    }
+    input.sign-up-input:-ms-input-placeholder {
+      color: rgba(0, 0, 0, 0);
+    }
+}
+
+#emailSpamNotice{
+  display: inline-block;
+  width: 38%;
+  line-height: 8px;
+  font-size: 10px;
+  padding-bottom: 8px;
+  @media (max-width: 768px) {
+    padding: 5px 0 8px 0;
+    width: 45%;
+  }
+}
+
+#emailSpamNoticeLockIcon{
+  padding-left: 26%;
+  display: inline-block;
+  @media (max-width: 768px) {
+    padding: 5px 0 0 0;
+  }
+}
+
+.sign-up-esp-label{
+  vertical-align: top;
+  @media screen and (max-width:768px) {
+    width: 35%;
+    padding-left: 0;
+    margin-left: -5px;
+  }
+}
+
+#espRadioWrapper{
+  width: 45%;
+  display: inline-block;
+  @media screen and (max-width:768px) {
+    width: 100%;
+  }
+}
+
+#new_user input[type="radio"] {
+   position:absolute;
+   opacity: 0;
+   -moz-opacity: 0;
+   -webkit-opacity: 0;
+   -o-opacity: 0;
+}
+
+#new_user input[type="radio"] + label {
+   position:relative;
+   padding: 0px 0px 3px 2px;
+   line-height: 16px;
+   font-weight:normal;
+   min-width: 260px;
+}
+
+#new_user input[type="radio"] + label:before {
+   content:"";
+   display:block;
+   position:absolute;
+   top:2px;
+   height: 11px;
+   width: 11px;
+   background: #FFF;
+   border: 1px solid #000;
+   border-radius:8px;
+   -webkit-border-radius:8px;
+   -o-border-radius:8px;
+   -moz-border-radius: 8px;
+   -ms-border-radius:8px;
+   -khtml-border-radius:8px;
+   box-shadow: inset 0px 0px 0px 2px #FFF;
+   -webkit-box-shadow: inset 0px 0px 0px 2px #FFF;
+   -moz-box-shadow: inset 0px 0px 0px 2px #FFF;
+   -o-box-shadow: inset 0px 0px 0px 2px #FFF;
+   -ms-box-shadow: inset 0px 0px 0px 2px #FFF;
+   -khtml-box-shadow: inset 0px 0px 0px 2px #FFF;
+}
+#new_user input[type="radio"]:checked + label:before {
+   background: #000;
+}
+
+.renewable-more-clause{
+  padding-left: 21px;
+}
+
+#sign-up-button-conditions{
+  display: inline-block;
+  line-height: 12px;
+  padding-bottom: 8px;
+  @media screen and (max-width:768px) {
+    width: 85%;
+  }
+}
+
+div.sign-up-submit{
+  position: relative;
+  width: 45%;
+  margin-left: 26%;
+  padding: 15px 0 25px 0;
+  font-size: 10px;
+  @media screen and (max-width:768px) {
+    width: 55%;
+    margin-left: 0;
+    margin-top: -15px;
+  }
+}
+
+#sign-up-submit-button{
+  height: 30px;
+  letter-spacing: 0em;
+  font-size: 16px;
+  border: 1px solid #B30808;
+  border-radius: 5px;
+  padding: 0 15px;
+  width: 86%;
+  background-color: #e40a0a;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
+  background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: linear-gradient(to bottom, #e40a0a, #9f0202);
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+}
+
+#sign-up-submit-button:hover{
+  border: 2px solid;
+  border-color: #FF6866 transparent #d20202 transparent;
+  background-color: #f62b2b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
+  background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+  background-image: linear-gradient(to bottom, #f62b2b, #d20202);
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+}
+
+.love-spacing {
+  line-height: 120%;
+}
+
+.love-spacing li{
+  padding-bottom: 7px;
+}
+
+// A BUNCH OF CSS THAT WAS IN 'base.css.scss' BUT ALSO DUPLICATED HERE
+// MAYBE SOME BITS ARE UNIQUE, SO SAVING FOR FUTURE USE
+
+// .sign-up-body {
+//   color:#617C99;
+//   margin:0 -45px
+// }
+// @media screen and (max-width:991px) {
+//   .sign-up-body {
+//     margin:0px -25px
+//   }
+// }
+// .sign-up-body>p {
+//   color:#617C99
+// }
+// .sign-up-body>a {
+//   text-decoration:underline
+// }
+// @media screen and (min-width:993px) and (max-width:1150px) {
+//   .sign-up-body {
+//     margin:0 0
+//   }
+// }
+// .sign-up-not-served-wrapper {
+//   margin-left:15%
+// }
+// .sign-up-sub-header {
+//   text-align:left;
+//   font-size:19px;
+//   font-weight:bold;
+//   margin:10px 30px 0px 1%;
+//   max-width:840px;
+//   min-width:450px
+// }
+// @media screen and (min-width:1300px) {
+//   .sign-up-sub-header {
+//     margin-left:-10%
+//   }
+// }
+// .sign-up-opener {
+//   text-align:center;
+//   color:#757575;
+//   font-size:15px;
+//   line-height:1.5em;
+//   margin:15px 0 15px -110px
+// }
+// @media screen and (max-width:992px) {
+//   .sign-up-opener {
+//     margin-left:-90px
+//   }
+// }
+// .sign-up-opener>span {
+//   display:inline-block;
+//   width:460px;
+//   margin:0px 30px 0px 15%
+// }
+// @media screen and (min-width:1300px) {
+//   .sign-up-opener>span {
+//     margin-left:10%
+//   }
+// }
+// #new_user.form-horizontal {
+//   margin:0 30px 0 30px;
+//   color:#757575;
+//   max-width:840px;
+//   min-width:470px;
+//   margin-left:3%
+// }
+// .sign-up-zip-field {
+//   margin:0 0 -15px 0;
+//   width:40%
+// }
+// .sign-up-submit {
+//   padding-bottom:25px;
+//   font-size:10px
+// }
+// .sign-up-label {
+//   padding:0 0 5px 5px;
+//   font-weight:bold;
+//   font-size:11px;
+//   color:#617C99
+// }
+// .half-width-label {
+//   display:inline-block;
+//   padding:0 33% 5px 5px
+// }
+// @media screen and (max-width:850px) {
+//   .half-width-label {
+//     padding-right:32%
+//   }
+// }
+// @media screen and (min-width:992px) {
+//   #sign-up-last-name {
+//     margin-left:-25px
+//   }
+// }
+// @media screen and (min-width:1300px) {
+//   #sign-up-last-name {
+//     padding-right:-18px
+//   }
+// }
+// .sign-up-esp-label {
+//   color:#617C99;
+//   font-size:19px
+// }
+// #new_user input[type="radio"] {
+//   position:absolute;
+//   opacity:0;
+//   -moz-opacity:0;
+//   -webkit-opacity:0;
+//   -o-opacity:0
+// }
+// #new_user input[type="radio"]+label {
+//   position:relative;
+//   padding:0px 0px 3px 2px;
+//   font-size:14px;
+//   line-height:16px;
+//   font-weight:normal
+// }
+// #new_user input[type="radio"]+label:before {
+//   content:"";
+//   display:block;
+//   position:absolute;
+//   top:2px;
+//   height:11px;
+//   width:11px;
+//   background:#FFF;
+//   border:1px solid #7FB0E3;
+//   border-radius:8px;
+//   -webkit-border-radius:8px;
+//   -o-border-radius:8px;
+//   -moz-border-radius:8px;
+//   -ms-border-radius:8px;
+//   -khtml-border-radius:8px;
+//   box-shadow:inset 0px 0px 0px 2px #7FB0E3;
+//   -webkit-box-shadow:inset 0px 0px 0px 2px #7FB0E3;
+//   -moz-box-shadow:inset 0px 0px 0px 2px #7FB0E3;
+//   -o-box-shadow:inset 0px 0px 0px 2px #7FB0E3;
+//   -ms-box-shadow:inset 0px 0px 0px 2px #7FB0E3;
+//   -khtml-box-shadow:inset 0px 0px 0px 2px #7FB0E3
+// }
+// #new_user input[type="radio"]:checked+label:before {
+//   background:#4C637B
+// }
+// .renewable-more-clause {
+//   padding-left:21px
+// }
+// #sign-up-submit-button {
+//   height:30px;
+//   margin-left:-14px;
+//   letter-spacing:0em;
+//   font-size:16px;
+//   border:1px solid #B30808;
+//   background-color:#e40a0a;
+//   background-image:-webkit-gradient(linear,left top,left bottom,from(#e40a0a),to(#9f0202));
+//   background-image:-webkit-linear-gradient(top,#e40a0a,#9f0202);
+//   background-image:-moz-linear-gradient(top,#e40a0a,#9f0202);
+//   background-image:-ms-linear-gradient(top,#e40a0a,#9f0202);
+//   background-image:-o-linear-gradient(top,#e40a0a,#9f0202);
+//   background-image:linear-gradient(to bottom,#e40a0a,#9f0202);
+//   filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a,endColorstr=#9f0202)
+// }
+// #sign-up-submit-button:hover {
+//   border:2px solid;
+//   border-color:#FF6866 transparent #d20202 transparent;
+//   background-color:#f62b2b;
+//   background-image:-webkit-gradient(linear,left top,left bottom,from(#f62b2b),to(#d20202));
+//   background-image:-webkit-linear-gradient(top,#f62b2b,#d20202);
+//   background-image:-moz-linear-gradient(top,#f62b2b,#d20202);
+//   background-image:-ms-linear-gradient(top,#f62b2b,#d20202);
+//   background-image:-o-linear-gradient(top,#f62b2b,#d20202);
+//   background-image:linear-gradient(to bottom,#f62b2b,#d20202);
+//   filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b,endColorstr=#d20202)
+// }
+// @media (min-width:768px) {
+//   input.sign-up-input::-webkit-input-placeholder {
+//     color:rgba(0,0,0,0)
+//   }
+//   input.sign-up-input::-moz-placeholder,input.sign-up-input:-moz-placeholder {
+//     color:rgba(0,0,0,0)
+//   }
+//   input.sign-up-input:-ms-input-placeholder {
+//     color:rgba(0,0,0,0)
+//   }
+// }
+// .rounded-lt-blue-bkgnd {
+//   border-radius:5px;
+//   -webkit-border-radius:5px;
+//   -o-border-radius:5px;
+//   -moz-border-radius:5px;
+//   -ms-border-radius:5px;
+//   -khtml-border-radius:5px;
+//   background:#c7e0fb
+// }
+// .complete-reg-submit {
+//   font-size:18px;
+//   width:215px;
+//   margin-left:-10px
+// }
+// @media screen and (min-width:768px) {
+//   .complete-reg-submit {
+//     font-size:22px;
+//     width:260px
+//   }
+// }
+// #sign-up-submit-button {
+//   height:30px;
+//   margin-left:-14px;
+//   letter-spacing:0em;
+//   font-size:16px;
+//   border:1px solid #B30808;
+//   background-color:#e40a0a;
+//   background-image:-webkit-gradient(linear,left top,left bottom,from(#e40a0a),to(#9f0202));
+//   background-image:-webkit-linear-gradient(top,#e40a0a,#9f0202);
+//   background-image:-moz-linear-gradient(top,#e40a0a,#9f0202);
+//   background-image:-ms-linear-gradient(top,#e40a0a,#9f0202);
+//   background-image:-o-linear-gradient(top,#e40a0a,#9f0202);
+//   background-image:linear-gradient(to bottom,#e40a0a,#9f0202);
+//   filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a,endColorstr=#9f0202)
+// }
+// #sign-up-submit-button:hover {
+//   border:2px solid;
+//   border-color:#FF6866 transparent #d20202 transparent;
+//   background-color:#f62b2b;
+//   background-image:-webkit-gradient(linear,left top,left bottom,from(#f62b2b),to(#d20202));
+//   background-image:-webkit-linear-gradient(top,#f62b2b,#d20202);
+//   background-image:-moz-linear-gradient(top,#f62b2b,#d20202);
+//   background-image:-ms-linear-gradient(top,#f62b2b,#d20202);
+//   background-image:-o-linear-gradient(top,#f62b2b,#d20202);
+//   background-image:linear-gradient(to bottom,#f62b2b,#d20202);
+//   filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b,endColorstr=#d20202)
+// }

@@ -1,0 +1,31 @@
+	<h3>New user</h3>
+		<table class="table table-striped">
+		  <tr>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		    <th>Email</th>
+		    <th>Phone</th>
+		    <th>Zip</th>
+		    <th>Service type</th>
+		    <th>Plan type</th>
+		    <th>Plan grade</th>
+		    <th>Created At</th>
+
+		  </tr>
+			  <tr>
+			    <td><%= @customer.first_name %></td>
+			    <td><%= @customer.last_name %> </td>
+			    <td><%= @customer.email %></td>
+				<td><%= @customer.phone %></td>
+				<% if @customer.zip.present? %>
+					<td><%= @customer.zip.zip %></td>
+				<% else %>
+					<td></td>
+				<% end %>
+				<td><%= @customer.service_type %></td>
+				<td><%= @customer.plan_type %></td>
+				<td><%= @customer.plan_grade %></td>
+				<td><%= @customer.created_at %></td>
+			
+			  </tr>
+		</table>

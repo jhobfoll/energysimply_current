@@ -1,0 +1,11 @@
+Sitemap: https://energysimp.ly/sitemap.xml
+# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
+#
+# To ban all spiders from the entire site uncomment the next two lines:
+User-agent: *
+Disallow: /cheapest-electric
+Disallow: /texas-plans
+Disallow: /tx-plans
+Disallow: /cheap-plans
+Disallow: /power-to-choose
+Disallow: /electric-companies

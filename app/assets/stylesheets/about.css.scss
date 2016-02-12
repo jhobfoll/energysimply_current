@@ -1,0 +1,149 @@
+//--BEGIN PARTIAL CSS--
+#about-es{
+  background-color:#617C99;
+  text-align:center;
+  color:#FFF;
+  padding:25px;
+}
+
+.about-hr{
+}
+
+.about-list{
+  width: 650px;
+  padding-left: 130px;
+  text-align:left;
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    padding-left: 0px;
+  }
+}
+
+ul.ul-ls-none{
+  list-style:none;
+  > li.li-dot:before {
+    content:image-url('WhiteBullet.png');
+  }
+  > li.li-check:before {
+    content:image-url('CheckMark.png');
+  }
+}
+
+.li-indented{
+  margin-left:25px
+}
+
+.steps-list{
+  text-align: left;
+  font-size: 15px;
+  width: 660px;
+  padding-top: 10px;
+  margin-bottom: -10px;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 550px) {
+    padding-left: 25%;
+  }
+}
+
+.steps-left-padding{
+  width:15% !important;
+}
+
+.step-div{
+  display:inline-block;
+  width: 215px;
+  vertical-align: top;
+  padding-bottom: 15px;
+}
+
+.steps-circles{
+  display:inline-block;
+  float: left;
+  font-size:22px;
+  font-weight: bold;
+  text-align: center;
+  background-color:#FDCC03;
+  border-radius:25px;
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+  -o-border-radius:25px;
+  -ms-border-radius:25px;
+  -khtml-border-radius:25px;
+  width:44px !important;
+  line-height: 2em;
+  margin-right: 6px;
+}
+
+.step-text{
+  display:inline-block;
+  float: left;
+  width: 161px;
+}
+  
+.yellow-strong{
+  color:#FFCC01;
+  font-size:18px;
+  font-weight:bold;
+}
+
+//--END PARTIAL CSS--
+
+//--BEGIN ABOUT-MAIN CSS--
+
+.about-list-blue > ul{
+  list-style:none;
+  > li.li-dk-blue-dot:before {
+    content:image-url('DkBlueBullet.png');    
+  }
+  > li.li-blue-check:before {
+    content:image-url('BlueCheck.png');
+  }
+}
+
+.step-div-about{
+  display:inline-block;
+  clear: left;
+  float: left;
+  vertical-align: top;
+  padding-bottom: 15px;
+  min-width: 100%;
+}
+
+.steps-list-about{
+  margin-left: 20px !important;
+}
+
+.steps-circles-about{
+  display:inline-block;
+  float: left;
+  font-size:17px;
+  line-height: 1.6em;
+  width: 28px !important;
+  font-weight: bold;
+  text-align: center;
+  background-color: #617C99;
+  color:#FFF;
+  border-radius:25px;
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+  -o-border-radius:25px;
+  -ms-border-radius:25px;
+  -khtml-border-radius:25px;
+  margin-right: 6px;
+}
+
+.step-text-about{
+  float: left;
+  max-width: 65%;
+}
+
+.blue-strong{
+  color:#617C99;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom: 25px;
+}
+
+//--END ABOUT-MAIN CSS--

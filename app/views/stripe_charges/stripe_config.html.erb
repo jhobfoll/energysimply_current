@@ -1,0 +1,16 @@
+<div class="jumbotron center">
+  
+  <h3>Stripe Configuration</h3>
+  
+  <%= form_tag create_plans_path do %>
+		
+  <div class="form-group xs-12">
+  	<%= submit_tag "Create Plans", 
+  		class: "btn btn-large btn-primary create-plans-submit" %>
+  </div>
+<% end %>
+  
+  <h5>This only sets up new plans.  One can modify plans only on their Stripe Account page.</h5>
+  
+</div>
+

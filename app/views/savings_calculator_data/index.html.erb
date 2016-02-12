@@ -1,0 +1,63 @@
+
+<br>
+<h2 style='clear: both'>Listing savings_calculator_data</h2>
+
+<h3>Import Data as CSV File</h3>
+  <%= form_tag import_savings_calculator_data_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+
+  <br><hr><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;Idkey&nbsp;</th>
+      <th>&nbsp;Tducompanyname&nbsp;</th>
+      <th>&nbsp;Repcompany&nbsp;</th>
+      <th>&nbsp;Product&nbsp;</th>
+      <th>&nbsp;Renewable&nbsp;</th>
+      <th>&nbsp;Termvalue&nbsp;</th>
+      <th>&nbsp;Promo_adj&nbsp;</th>
+      <th>&nbsp;Rate_100&nbsp;</th>
+      <th>&nbsp;Rate_500&nbsp;</th>
+      <th>&nbsp;Rate_1000&nbsp;</th>
+      <th>&nbsp;Rate_2000&nbsp;</th>
+      <th>&nbsp;Rate_500_fixed&nbsp;</th>
+      <th>&nbsp;Rate_1000_fixed&nbsp;</th>
+      <th>&nbsp;Rate_2000_fixed&nbsp;</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @savings_calculator_data.each do |savings_calculator_datum| %>
+      <tr>
+        <td><%= savings_calculator_datum.idKey %></td>
+        <td><%= savings_calculator_datum.TduCompanyName %></td>
+        <td><%= savings_calculator_datum.RepCompany %></td>
+        <td><%= savings_calculator_datum.Product %></td>
+        <td><%= savings_calculator_datum.Renewable %></td>
+        <td><%= savings_calculator_datum.TermValue %></td>
+        <td><%= savings_calculator_datum.Promo_adj %></td>
+        <td><%= number_with_precision(savings_calculator_datum.rate_100, precision: 4) %></td>
+        <td><%= number_with_precision(savings_calculator_datum.rate_500, precision: 4) %></td>
+        <td><%= number_with_precision(savings_calculator_datum.rate_1000, precision: 4) %></td>
+        <td><%= number_with_precision(savings_calculator_datum.rate_2000, precision: 4) %></td>
+        <td><%= number_with_precision(savings_calculator_datum.rate_500_fixed, precision: 2) %></td>
+        <td><%= number_with_precision(savings_calculator_datum.rate_1000_fixed, precision: 2) %></td>
+        <td><%= number_with_precision(savings_calculator_datum.rate_2000_fixed, precision: 2) %></td>
+        <td><%= link_to 'Show', savings_calculator_datum %></td>
+        <td><%= link_to 'Edit', edit_savings_calculator_datum_path(savings_calculator_datum) %></td>
+        <td><%= link_to 'Destroy', savings_calculator_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Savings calculator datum', new_savings_calculator_datum_path %>

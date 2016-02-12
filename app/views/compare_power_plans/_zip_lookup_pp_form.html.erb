@@ -1,0 +1,20 @@
+<%= form_tag pp_zip_lookup_path, id: 'pp_zip_lookup_form' do %>
+
+    <div class='zip-input div-inline' id='div-pp-zip-input'>
+      <%= text_field_tag :zip, nil, placeholder: 'Zip Code', class: 'form-control', id: 'pp_compare_zip_field' %>
+    </div>
+
+    <div class='home-type div-inline' id='div-pp-zip-lookup-select'>
+      <%= select_tag :home_type, options_for_select([["Average-Size House"], ["Apartment"], ["Large House"]],
+        :selected=>"Average-Size House"), class: "home-type-select selectpicker" %>
+    </div>
+
+    <%= submit_tag 'Submit', class: 'btn-primary', id: 'pp_compare_zip_lookup_submit' %>
+
+    <% if @company.present? %>  <%# Are On Review Page %>
+      <%= hidden_field_tag 'company_name', @company.company_name %>
+      <%= hidden_field_tag 'path_company_name', (URI.parse(request.fullpath).path) %>
+      <%= hidden_field_tag 'id', @company.id %>
+    <% end %>
+
+<% end %>

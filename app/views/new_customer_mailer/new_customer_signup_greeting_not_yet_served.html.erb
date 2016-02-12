@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /> </head>
+
+<body>
+Hello <%=@customer.first_name %>,<br>
+
+You can sign into Energy Simply with the following credentials:<br/>
+&nbsp;&nbsp;&nbsp;Email:&nbsp;<%=@customer.email %><br/>
+&nbsp;&nbsp;&nbsp;Password:&nbsp;<%=@plain_pass%>
+<br><br>
+
+<p>Thank you for signing up with Energy Simply.  As mentioned we don't currently serve your area, but we know you have frustrations with choosing electricity providers and we plan on serving your area in the near future.
+<br><br>
+The choice of where we go next will be partly based on demand so please tell your friends and family about our service and encourage them to sign up online.
+<br/><br>
+Spread the word about Energy Simply using this link: <%= "http://energysimp.ly/" + @customer.referral_key %><br/><br/>
+Earn rewards when friends sign up. You will receive a <b>Philips LED light bulb</b> for your first referral, and you can earn many other energy-saving prizes for additional referrals, including a <b>Nest Thermostat</b> if you refer 25 people. <br/><br/>
+
+<br><br>
+Thanks again,<br><br>
+Jordan Hobfoll<br>
+CEO <a href="https://EnergySimp.ly">EnergySimp.ly</a></p>
+
+</body>
+</html>
